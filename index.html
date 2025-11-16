@@ -4,100 +4,161 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chase Premone — Architecting Reality</title>
+
     <style>
+        /* ----------- GLOBAL ----------- */
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: #0d0d0f;
+            background-color: #000;
             color: #e6e6e6;
-            line-height: 1.6;
+            font-family: "Inter", Arial, sans-serif;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
 
-        header {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(120deg, #1b1b1f, #0d0d10, #101014);
-        }
-
-        header img {
-            width: 160px;
-            height: 160px;
-            border-radius: 100%;
-            object-fit: cover;
-            border: 2px solid #3a3a40;
-            margin-bottom: 1.5rem;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-
-        h2.section-title {
-            font-size: 2rem;
-            margin-top: 4rem;
-            margin-bottom: 1rem;
-            text-align: center;
-            letter-spacing: 0.5px;
-            color: #cecece;
-        }
-
-        p {
-            max-width: 780px;
-            margin: 1rem auto;
-            text-align: center;
-            opacity: 0.85;
+        h1, h2, h3 {
+            font-family: "Inter", sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
         }
 
         .container {
-            max-width: 1080px;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
         }
 
+        /* ----------- HEADER ----------- */
+        header {
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            background: #000;
+        }
+
+        header img {
+            width: 170px;
+            height: 170px;
+            border-radius: 100%;
+            object-fit: cover;
+            border: 1px solid #333;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 3.4rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            opacity: 0.65;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* ----------- SECTION TITLES ----------- */
+        .section-title {
+            font-size: 2.6rem;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .section-subtext {
+            text-align: center;
+            max-width: 680px;
+            margin: 0.5rem auto 2rem;
+            opacity: 0.7;
+            font-size: 1.05rem;
+        }
+
+        /* ----------- HERO IMAGE ----------- */
+        .hero-image {
+            width: 100%;
+            border-radius: 18px;
+            border: 1px solid #1a1a1a;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ----------- ECOSYSTEM GRID ----------- */
         .ecosystem-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .ecosystem-card {
-            background: #151518;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 1px solid #222227;
-            text-align: center;
-            transition: 0.25s;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.07);
+            padding: 2.5rem;
+            border-radius: 18px;
+            transition: 0.3s;
+            backdrop-filter: blur(6px);
         }
 
         .ecosystem-card:hover {
+            border-color: rgba(255,255,255,0.18);
             transform: translateY(-6px);
-            border-color: #44444e;
-        }
-
-        .ecosystem-card h3 {
-            margin-bottom: 1rem;
-            letter-spacing: 0.5px;
         }
 
         .ecosystem-card img {
             width: 100%;
-            height: 280px;
+            height: 260px;
             object-fit: cover;
             border-radius: 14px;
-            margin-bottom: 1rem;
-            border: 1px solid #333;
+            margin-bottom: 1.5rem;
+            border: 1px solid #222;
+        }
+
+        .ecosystem-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
+
+        .ecosystem-card p {
+            opacity: 0.75;
+            font-size: 1rem;
+        }
+
+        /* ----------- CTA ----------- */
+        .cta {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta a {
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid #555;
+            padding: 0.9rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: 0.25s;
+        }
+
+        .cta a:hover {
+            border-color: #999;
+            letter-spacing: 2px;
         }
 
         footer {
-            padding: 3rem 2rem;
             text-align: center;
-            opacity: 0.6;
+            padding: 3rem;
+            opacity: 0.4;
             font-size: 0.9rem;
-            margin-top: 4rem;
+            border-top: 1px solid #111;
+            margin-top: 5rem;
         }
+
     </style>
 </head>
 
@@ -105,45 +166,37 @@
 
     <!-- HEADER -->
     <header>
-        <img src="assets/images/headshot.png" alt="Chase Premone Headshot" />
-        <h1>Chase Premone</h1>
-        <p>Author • Architect of Reality • Myth-Tech Visionary • Human+ Ecosystem Builder</p>
+        <img src="assets/images/headshot.png" alt="Chase Premone" />
+        <h1>CHASE PREMONE</h1>
+        <p>Architect of Reality • Myth-Tech Visionary • Human+</p>
     </header>
 
     <!-- HERO -->
     <div class="container">
-        <img 
-            src="assets/images/heroimage.png" 
-            alt="Hero Image" 
-            style="width:100%; border-radius:14px; border:1px solid #222;" 
-        />
+        <img src="assets/images/heroimage.png" class="hero-image" alt="Hero Image" />
 
-        <h2 class="section-title">I Build Systems That Expand Human Possibility</h2>
-        <p>
-            I’m pioneering a new frontier where personal identity, intelligence amplification, myth-making, 
-            and sovereign living converge. My work spans philosophy, media, AI, architecture, 
-            and cultural design — woven into a cohesive ecosystem that empowers individuals to become 
-            upgraded versions of themselves and build realities aligned with their deepest code.
+        <h2 class="section-title">Expanding Human Possibility</h2>
+
+        <p class="section-subtext">
+            Architecting identity, narrative, intelligence, and sovereignty into a coherent ecosystem for the upgraded human.
         </p>
     </div>
 
     <!-- ECOSYSTEM -->
     <div class="container">
         <h2 class="section-title">The Ecosystem</h2>
-        <p>
-            Everything I build is part of a coherent ontology — a living constellation of projects designed 
-            to elevate human agency, creativity, and sovereignty.
+        <p class="section-subtext">
+            A myth-tech ontology. A unified field of frameworks, disciplines, and systems engineered for Human+ evolution.
         </p>
 
         <div class="ecosystem-grid">
 
             <!-- Human+ -->
             <div class="ecosystem-card">
-                <img src="assets/images/humanplus.png" alt="Human+ Visual" />
+                <img src="assets/images/humanplus.png" alt="Human+" />
                 <h3>Human+</h3>
                 <p>
-                    The upgraded model of human potential — merging identity architecture, performance, 
-                    and high-agency worldview engineering.
+                    The upgraded model of human potential — identity architecture, performance, self-authorship, and high-agency worldview engineering.
                 </p>
             </div>
 
@@ -152,18 +205,16 @@
                 <img src="assets/images/aor.png" alt="Architecting Reality" />
                 <h3>Architecting Reality™</h3>
                 <p>
-                    A framework for designing your inner and outer world with precision — transforming clarity 
-                    into artifacts, ventures, and lived philosophy.
+                    A precision system for designing your inner and outer world — transforming clarity into artifacts, initiatives, and lived philosophy.
                 </p>
             </div>
 
-            <!-- Myth-Tech (replaced placeholder) -->
+            <!-- Myth-Tech -->
             <div class="ecosystem-card">
-                <img src="assets/images/heroimage.png" alt="Myth-Tech Visual" />
+                <img src="assets/images/heroimage.png" alt="Myth-Tech" />
                 <h3>Myth-Tech</h3>
                 <p>
-                    Where narrative meets emerging technology. I craft mythologies that shape culture, 
-                    perception, and the identity of future civilizations.
+                    The fusion of mythic storytelling and emerging technology — shaping future culture, perception, and the new sovereign narrative.
                 </p>
             </div>
 
@@ -171,15 +222,11 @@
     </div>
 
     <!-- CTA -->
-    <div class="container">
-        <h2 class="section-title">Enter The Next Reality</h2>
-        <p>
-            Subscribe, join the ecosystem, or explore the frameworks shaping the sovereign individual of tomorrow.
-        </p>
+    <div class="container cta">
+        <h2 class="section-title">Enter the Next Reality</h2>
+        <p class="section-subtext">Join the ecosystem and step into the Human+ paradigm.</p>
 
-        <p style="margin-top: 2rem;">
-            <a href="#" style="color: #9cc9ff; text-decoration: underline;">Get Early Access</a>
-        </p>
+        <a href="#">Get Early Access</a>
     </div>
 
     <footer>
