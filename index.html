@@ -1,237 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chase Premone — Architecting Reality</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chase Premone — Architecting Reality</title>
 
-    <style>
-        /* ----------- GLOBAL ----------- */
-        body {
-            margin: 0;
-            background-color: #000;
-            color: #e6e6e6;
-            font-family: "Inter", Arial, sans-serif;
-            line-height: 1.65;
-            -webkit-font-smoothing: antialiased;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        h1, h2, h3 {
-            font-family: "Inter", sans-serif;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
+<style>
 
-        .container {
-            max-width: 1240px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
+    /* GLOBAL */
 
-        /* ----------- HEADER ----------- */
-        header {
-            padding: 6rem 2rem 4rem;
-            text-align: center;
-            background: #000;
-        }
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: #000;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.6;
+    }
 
-        header img {
-            width: 170px;
-            height: 170px;
-            border-radius: 100%;
-            object-fit: cover;
-            border: 1px solid #333;
-            margin-bottom: 2rem;
-        }
+    a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid #333;
+        padding-bottom: 2px;
+        transition: 0.2s;
+    }
 
-        header h1 {
-            font-size: 3.4rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+    a:hover {
+        border-bottom-color: #fff;
+    }
 
-        header p {
-            margin-top: 1rem;
-            font-size: 1.2rem;
-            opacity: 0.65;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+    /* HEADER NAV */
 
-        /* ----------- SECTION TITLES ----------- */
-        .section-title {
-            font-size: 2.6rem;
-            text-align: center;
-            margin-bottom: 0.75rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+    .nav {
+        width: 100%;
+        padding: 1.8rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        background: rgba(0,0,0,0.65);
+        backdrop-filter: blur(6px);
+        border-bottom: 1px solid #111;
+    }
 
-        .section-subtext {
-            text-align: center;
-            max-width: 680px;
-            margin: 0.5rem auto 2rem;
-            opacity: 0.7;
-            font-size: 1.05rem;
-        }
+    .nav-logo {
+        font-size: 1.8rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+    }
 
-        /* ----------- HERO IMAGE ----------- */
-        .hero-image {
-            width: 100%;
-            border-radius: 18px;
-            border: 1px solid #1a1a1a;
-            margin-bottom: 2.5rem;
-        }
+    .nav-link {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        opacity: 0.75;
+        text-transform: uppercase;
+    }
 
-        /* ----------- ECOSYSTEM GRID ----------- */
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
+    /* HERO SECTION */
 
-        .ecosystem-card {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            padding: 2.5rem;
-            border-radius: 18px;
-            transition: 0.3s;
-            backdrop-filter: blur(6px);
-        }
+    .hero {
+        padding-top: 10rem;
+        padding-bottom: 6rem;
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+    }
 
-        .ecosystem-card:hover {
-            border-color: rgba(255,255,255,0.18);
-            transform: translateY(-6px);
-        }
+    .hero-name {
+        letter-spacing: 14px;
+        font-size: 1.1rem;
+        color: #aaa;
+        margin-bottom: 1.5rem;
+    }
 
-        .ecosystem-card img {
-            width: 100%;
-            height: 260px;
-            object-fit: cover;
-            border-radius: 14px;
-            margin-bottom: 1.5rem;
-            border: 1px solid #222;
-        }
+    .hero-title {
+        font-size: 3.8rem;
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+    }
 
-        .ecosystem-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.7px;
-            text-transform: uppercase;
-        }
+    .hero-subtitle {
+        font-size: 3.8rem;
+        font-weight: 800;
+        opacity: 0.6;
+        line-height: 1.15;
+    }
 
-        .ecosystem-card p {
-            opacity: 0.75;
-            font-size: 1rem;
-        }
+    .hero-text {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        opacity: 0.75;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        /* ----------- CTA ----------- */
-        .cta {
-            text-align: center;
-            margin-top: 4rem;
-        }
+    /* MINI-CTA */
 
-        .cta a {
-            color: #fff;
-            text-decoration: none;
-            border: 1px solid #555;
-            padding: 0.9rem 2rem;
-            border-radius: 12px;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: 0.25s;
-        }
+    .hero-cta {
+        margin-top: 2rem;
+        font-size: 1rem;
+        opacity: 0.85;
+        display: inline-block;
+        cursor: pointer;
+    }
 
-        .cta a:hover {
-            border-color: #999;
-            letter-spacing: 2px;
-        }
+    /* SECTION TITLE */
 
-        footer {
-            text-align: center;
-            padding: 3rem;
-            opacity: 0.4;
-            font-size: 0.9rem;
-            border-top: 1px solid #111;
-            margin-top: 5rem;
-        }
+    .section-title {
+        text-align: center;
+        font-size: 1rem;
+        letter-spacing: 10px;
+        color: #777;
+        margin-top: 6rem;
+        margin-bottom: 0.5rem;
+        text-transform: uppercase;
+    }
 
-    </style>
+    .section-header {
+        text-align: center;
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+        text-align: center;
+        opacity: 0.6;
+        margin-bottom: 3rem;
+        font-size: 1.1rem;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* RESOURCE GRID */
+
+    .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 4rem;
+        padding: 2rem 3rem 6rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .resource-card {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .resource-image {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #222;
+        object-fit: cover;
+    }
+
+    .resource-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.2rem;
+    }
+
+    .resource-desc {
+        opacity: 0.75;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* ABOUT SECTION */
+
+    .about-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 6rem 3rem;
+    }
+
+    .about-layout {
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 4rem;
+        align-items: start;
+    }
+
+    .about-img {
+        width: 100%;
+        border-radius: 100%;
+        border: 2px solid #333;
+        object-fit: cover;
+    }
+
+    .about-name {
+        font-size: 2.8rem;
+        font-weight: 800;
+        margin-bottom: 0.3rem;
+    }
+
+    .about-sub {
+        opacity: 0.6;
+        margin-bottom: 2rem;
+    }
+
+    .about-text {
+        opacity: 0.85;
+        line-height: 1.7;
+        font-size: 1.05rem;
+    }
+
+    footer {
+        text-align: center;
+        opacity: 0.4;
+        padding: 4rem 2rem;
+        margin-top: 6rem;
+        font-size: 0.9rem;
+        border-top: 1px solid #111;
+    }
+
+</style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <img src="assets/images/headshot.png" alt="Chase Premone" />
-        <h1>CHASE PREMONE</h1>
-        <p>Architect of Reality • Myth-Tech Visionary • Human+</p>
-    </header>
+<!-- NAV -->
+<div class="nav">
+    <div class="nav-logo">CP</div>
+    <a href="#" class="nav-link">ENTER THE NEXT REALITY</a>
+</div>
 
-    <!-- HERO -->
-    <div class="container">
-        <img src="assets/images/heroimage.png" class="hero-image" alt="Hero Image" />
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-name">C H A S E &nbsp; P R E M O N E</div>
 
-        <h2 class="section-title">Expanding Human Possibility</h2>
+    <div class="hero-title">Architect Your Identity.</div>
+    <div class="hero-subtitle">Build Your Reality.</div>
 
-        <p class="section-subtext">
-            Architecting identity, narrative, intelligence, and sovereignty into a coherent ecosystem for the upgraded human.
-        </p>
-    </div>
+    <p class="hero-text">
+        Join 10,000+ people stepping into the new paradigm — where identity, intelligence, and sovereignty converge.  
+        I write on the mind, myth-tech, personal philosophy, and the future of the human experience.
+    </p>
 
-    <!-- ECOSYSTEM -->
-    <div class="container">
-        <h2 class="section-title">The Ecosystem</h2>
-        <p class="section-subtext">
-            A myth-tech ontology. A unified field of frameworks, disciplines, and systems engineered for Human+ evolution.
-        </p>
+    <a class="hero-cta">Receive weekly letters from the frontier →</a>
+</section>
 
-        <div class="ecosystem-grid">
+<!-- RESOURCES -->
+<div class="section-title">E C O S Y S T E M</div>
+<h2 class="section-header">Enter The Human+ Paradigm</h2>
+<p class="section-sub">The frameworks, tools, and mythologies that shape the next era of human capability.</p>
 
-            <!-- Human+ -->
-            <div class="ecosystem-card">
-                <img src="assets/images/humanplus.png" alt="Human+" />
-                <h3>Human+</h3>
-                <p>
-                    The upgraded model of human potential — identity architecture, performance, self-authorship, and high-agency worldview engineering.
-                </p>
-            </div>
+<div class="resource-grid">
 
-            <!-- Architecting Reality -->
-            <div class="ecosystem-card">
-                <img src="assets/images/aor.png" alt="Architecting Reality" />
-                <h3>Architecting Reality™</h3>
-                <p>
-                    A precision system for designing your inner and outer world — transforming clarity into artifacts, initiatives, and lived philosophy.
-                </p>
-            </div>
-
-            <!-- Myth-Tech -->
-            <div class="ecosystem-card">
-                <img src="assets/images/heroimage.png" alt="Myth-Tech" />
-                <h3>Myth-Tech</h3>
-                <p>
-                    The fusion of mythic storytelling and emerging technology — shaping future culture, perception, and the new sovereign narrative.
-                </p>
-            </div>
-
+    <!-- Human+ -->
+    <div class="resource-card">
+        <img src="assets/images/humanplus.png" class="resource-image" alt="Human+" />
+        <div class="resource-title">Human+</div>
+        <div class="resource-desc">
+            The upgraded operating system for the sovereign individual — identity architecture, worldview engineering, and self-authorship.
         </div>
+        <a href="#">Enter Human+</a>
     </div>
 
-    <!-- CTA -->
-    <div class="container cta">
-        <h2 class="section-title">Enter the Next Reality</h2>
-        <p class="section-subtext">Join the ecosystem and step into the Human+ paradigm.</p>
-
-        <a href="#">Get Early Access</a>
+    <!-- Architecting Reality -->
+    <div class="resource-card">
+        <img src="assets/images/aor.png" class="resource-image" alt="AOR" />
+        <div class="resource-title">Architecting Reality™</div>
+        <div class="resource-desc">
+            A precision design framework for building your inner world and external world in parallel — with accuracy, intention, and inevitability.
+        </div>
+        <a href="#">Explore AOR</a>
     </div>
 
-    <footer>
-        © 2025 Chase Premone. All Rights Reserved.
-    </footer>
+    <!-- Myth-Tech -->
+    <div class="resource-card">
+        <img src="assets/images/heroimage.png" class="resource-image" alt="Myth-Tech" />
+        <div class="resource-title">Myth-Tech</div>
+        <div class="resource-desc">
+            The fusion of myth-making, narrative architecture, and emerging technology — shaping future culture and sovereign identity.
+        </div>
+        <a href="#">See Myth-Tech</a>
+    </div>
+
+</div>
+
+<!-- ABOUT ME -->
+<div class="section-title">A B O U T &nbsp; M E</div>
+
+<div class="about-container">
+    <div class="about-layout">
+
+        <img src="assets/images/headshot.png" class="about-img" alt="Chase Premone" />
+
+        <div>
+            <div class="about-name">Who Is Chase Premone?</div>
+            <div class="about-sub">A mind obsessed with the architectures of identity, reality, and the future human.</div>
+
+            <div class="about-text">
+                I write, design, and build systems that expand human possibility.  
+                My work lives at the intersection of identity, philosophy, intelligence, and myth-making —  
+                forming a unified ecosystem that helps you step into the upgraded version of yourself.
+                <br><br>
+                Previously, I helped founders, creators, and operators build clarity-driven systems for thinking,  
+                creating, and self-transforming. Today, I focus on building the Human+ ecosystem,  
+                crafting myth-tech narratives, and architecting sovereign frameworks for individuals stepping into  
+                the next era of civilization.
+                <br><br>
+                I'm not taking calls or clients. If you want to learn from me, explore the ecosystem above —  
+                or subscribe to the letters I send from the frontier of human evolution.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    © 2025 Chase Premone. Enter The Next Reality.
+</footer>
 
 </body>
 </html>
