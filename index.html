@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Chase Premone — Architect of Reality</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -67,7 +67,7 @@
     }
 
     .hero-name {
-        letter-spacing: 8px; /* reduced spacing */
+        letter-spacing: 8px;
         font-size: 1rem;
         color: #aaa;
         margin-bottom: 1.5rem;
@@ -123,39 +123,67 @@
         margin-right: auto;
     }
 
-    /* GRID */
-    .resource-grid {
+    /* BOOK SECTIONS (Stripe Press style) */
+    .book-section {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-        gap: 4rem;
-        padding: 2rem 3rem 6rem;
-        max-width: 1400px;
-        margin: 0 auto;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        max-width: 1300px;
+        margin: 5rem auto;
+        padding: 2rem 3rem;
+        align-items: center;
     }
 
-    .resource-card {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    .resource-image {
+    .book-img {
         width: 100%;
         border-radius: 12px;
         border: 1px solid #222;
         object-fit: cover;
     }
 
-    .resource-title {
-        font-size: 1.5rem;
+    .book-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2rem;
         font-weight: 700;
-        margin-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
     }
 
-    .resource-desc {
-        opacity: 0.75;
+    .book-author {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+    }
+
+    .book-desc {
         font-size: 1rem;
-        margin-bottom: 0.5rem;
+        opacity: 0.8;
+        margin-bottom: 2rem;
+        max-width: 90%;
+        line-height: 1.7;
+    }
+
+    .book-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .book-btn {
+        border: 1px solid #777;
+        padding: 0.9rem 1.2rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        text-align: left;
+        width: fit-content;
+        cursor: pointer;
+        transition: 0.25s;
+    }
+
+    .book-btn:hover {
+        border-color: #fff;
+        padding-left: 1.4rem;
     }
 
     /* ABOUT */
@@ -174,7 +202,7 @@
 
     .about-img {
         width: 100%;
-        border-radius: 22px; /* new square w/ rounded corners */
+        border-radius: 22px;
         border: 2px solid #333;
         object-fit: cover;
     }
@@ -209,7 +237,7 @@
 <!-- NAV -->
 <div class="nav">
     <div class="nav-logo">CP</div>
-    <a href="#" class="nav-link">ENTER THE NEXT REALITY</a>
+    <a href="#" class="nav-link" target="_blank" rel="noopener noreferrer">ENTER THE NEXT REALITY</a>
 </div>
 
 <!-- HERO -->
@@ -219,52 +247,57 @@
     <div class="hero-title">Design Your Mind.</div>
     <div class="hero-subtitle">Own Your Future.</div>
 
-    <!-- CLICKABLE SUBHEADER -->
     <p class="hero-text">
-        <a href="https://chasepremone.substack.com" style="border-bottom:1px solid #444;">
+        <a href="https://chasepremone.substack.com" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid #444;">
             Letters from the edge of the next reality.
         </a>
     </p>
 </section>
 
-<!-- ECOSYSTEM -->
-<div class="section-title">E C O S Y S T E M</div>
-<h2 class="section-header">Enter The Human+ Paradigm</h2>
-<p class="section-sub">
-    Systems for thinking, creating, and becoming more than the world expects.
-</p>
+<!-- NEW ECOSYSTEM HEADER -->
+<div class="section-header">Welcome to the New Paradigm.</div>
+<p class="section-sub">Explore resources for evolution.</p>
 
-<div class="resource-grid">
+<!-- STRIPE-PRESS STYLE BOOK SECTION #1 -->
+<div class="book-section">
+    <img src="assets/images/book1.png" class="book-img" alt="Book One" />
 
-    <div class="resource-card">
-        <img src="assets/images/humanplus.png" class="resource-image" alt="Human+" />
-        <div class="resource-title">Human+</div>
-        <div class="resource-desc">
-            The upgraded model of you.  
-            A new identity, a new operating system, a new trajectory.
+    <div>
+        <div class="book-title">Book Title Placeholder</div>
+        <div class="book-author">By Chase Premone</div>
+
+        <div class="book-desc">
+            This is placeholder descriptive text for your future flagship book. 
+            When ready, we will insert the exact chapter themes, philosophy lines,
+            and narrative backbone that define the human evolution you’re architecting.
         </div>
-        <a href="https://www.skool.com/the-assembly-8278/about">Enter Human+</a>
-    </div>
 
-    <div class="resource-card">
-        <img src="assets/images/aor.png" class="resource-image" alt="Architect of Reality" />
-        <div class="resource-title">Architect of Reality™</div>
-        <div class="resource-desc">
-            Build your inner world and outer world with precision.  
-            Turn clarity into execution and ideas into inevitability.
+        <div class="book-buttons">
+            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
+            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
         </div>
-        <a href="#">Explore AOR</a>
     </div>
+</div>
 
-    <div class="resource-card">
-        <img src="assets/images/heroimage.png" class="resource-image" alt="Future Systems" />
-        <div class="resource-title">Future Systems</div>
-        <div class="resource-desc">
-            Tools, thinking models, and interfaces for living at the frontier of human evolution.
+<!-- STRIPE-PRESS STYLE BOOK SECTION #2 -->
+<div class="book-section">
+    <img src="assets/images/book2.png" class="book-img" alt="Book Two" />
+
+    <div>
+        <div class="book-title">Second Book Placeholder</div>
+        <div class="book-author">By Chase Premone</div>
+
+        <div class="book-desc">
+            Another placeholder for the companion book in your mythos. 
+            This will eventually house the crystallized frameworks, systems,
+            and evolutionary architectures behind the Human+ worldview.
         </div>
-        <a href="#">Explore Systems</a>
-    </div>
 
+        <div class="book-buttons">
+            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
+            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+        </div>
+    </div>
 </div>
 
 <!-- ABOUT -->
@@ -296,7 +329,7 @@
     </div>
 </div>
 
-<!-- SUBSTACK MOVED HERE (NO BORDER) -->
+<!-- SUBSTACK SIGNUP -->
 <div style="display:flex; justify-content:center; margin-top:3rem;">
     <iframe 
         src="https://chasepremone.substack.com/embed" 
