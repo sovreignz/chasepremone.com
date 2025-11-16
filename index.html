@@ -33,7 +33,7 @@
         width: 100%;
         padding: 1.6rem 3rem;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         position: fixed;
         top: 0;
@@ -48,13 +48,6 @@
         font-size: 1.8rem;
         font-weight: 800;
         letter-spacing: 1px;
-    }
-
-    .nav-link {
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-        opacity: 0.8;
-        text-transform: uppercase;
     }
 
     /* HERO */
@@ -228,6 +221,60 @@
         padding-left: 1.35rem;
     }
 
+    /* CANON STRIP */
+    .canon-container {
+        max-width: 1300px;
+        margin: 2rem auto 5rem;
+        padding: 0 3rem;
+        text-align: center;
+    }
+
+    .canon-grid {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .canon-card {
+        width: 220px;
+        background: #0b0b0b;
+        border: 1px solid #1a1a1a;
+        padding: 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .canon-img {
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid #222;
+        margin-bottom: 1rem;
+    }
+
+    .canon-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .canon-btn {
+        border: 1px solid #777;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        display: block;
+        margin: 0.3rem auto;
+        width: fit-content;
+        transition: 0.25s;
+    }
+
+    .canon-btn:hover {
+        border-color: #fff;
+        padding-left: 1.25rem;
+    }
+
     /* ABOUT */
     .about-container {
         max-width: 1200px;
@@ -279,7 +326,6 @@
 <!-- NAV -->
 <div class="nav">
     <div class="nav-logo">CP</div>
-    <a href="#" class="nav-link" target="_blank" rel="noopener noreferrer">ENTER THE NEXT REALITY</a>
 </div>
 
 <!-- HERO -->
@@ -296,7 +342,7 @@
     </p>
 </section>
 
-<!-- NEW ECOSYSTEM SECTION -->
+<!-- ECOSYSTEM -->
 <div class="section-small">E C O S Y S T E M</div>
 <div class="section-large">Enter the New Paradigm</div>
 
@@ -326,20 +372,20 @@
 
 </div>
 
-<!-- RESOURCES SECTION -->
+<!-- RESOURCES -->
 <div class="section-small">R E S O U R C E S</div>
 <div class="section-large">Upgrade Your Reality</div>
 
-<!-- BOOK SECTION #1 -->
+<!-- FEATURED BOOK #1 -->
 <div class="book-section">
     <img src="assets/images/book1.png" class="book-img" alt="Book One" />
 
     <div>
-        <div class="book-title">Architect of Reality</div>
+        <div class="book-title">Architect of Reality™</div>
         <div class="book-author">By Chase Premone</div>
 
         <div class="book-desc">
-            Architect of Reality™ is a field manual for building the only structure that truly shapes your future: yourself. A blueprint for clarity, discipline, and identity construction in an age defined by intelligence, acceleration, and existential choice.
+            A foundational work on identity, clarity, and the architecture of the self in the age of accelerating intelligence.
         </div>
 
         <div class="book-buttons">
@@ -349,7 +395,7 @@
     </div>
 </div>
 
-<!-- BOOK SECTION #2 -->
+<!-- FEATURED BOOK #2 -->
 <div class="book-section">
     <img src="assets/images/book2.png" class="book-img" alt="Book Two" />
 
@@ -358,14 +404,39 @@
         <div class="book-author">By Chase Premone</div>
 
         <div class="book-desc">
-            Existential Economics reframes value through a single lens: identity.
-In an age defined by exponential intelligence, this book shows how clarity, sovereignty, and self-authorship become the ultimate forms of leverage & the foundation for designing a future you actually want to live in.
+            A concise exploration of value, identity, and human potential in a world shaped by exponential intelligence.
         </div>
 
         <div class="book-buttons">
             <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
             <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
         </div>
+    </div>
+</div>
+
+<!-- THE CANON -->
+<div class="canon-container">
+    <div class="section-small">T H E &nbsp; C A N O N</div>
+    <div class="section-large">Foundational Works</div>
+
+    <div class="canon-grid">
+        
+        <!-- Canon Card 1 -->
+        <div class="canon-card">
+            <img src="assets/images/book1.png" class="canon-img" alt="Architect of Reality" />
+            <div class="canon-title">Architect of Reality™</div>
+            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
+            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Waitlist</a>
+        </div>
+
+        <!-- Canon Card 2 -->
+        <div class="canon-card">
+            <img src="assets/images/book2.png" class="canon-img" alt="Existential Economics" />
+            <div class="canon-title">Existential Economics</div>
+            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
+            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Waitlist</a>
+        </div>
+
     </div>
 </div>
 
@@ -398,7 +469,7 @@ In an age defined by exponential intelligence, this book shows how clarity, sove
     </div>
 </div>
 
-<!-- SUBSTACK SIGNUP -->
+<!-- SUBSTACK EMBED -->
 <div style="display:flex; justify-content:center; margin-top:3rem;">
     <iframe 
         src="https://chasepremone.substack.com/embed" 
