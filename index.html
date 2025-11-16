@@ -95,35 +95,78 @@
         margin: 0.5rem auto 2rem;
     }
 
-    /* SECTION TITLES */
-    .section-title {
+    /* SECTION HEADERS */
+    .section-small {
         text-align: center;
-        font-size: 1rem;
+        font-size: 0.95rem;
         letter-spacing: 9px;
         color: #777;
-        margin-top: 6rem;
+        margin-top: 4rem;
         margin-bottom: 0.5rem;
         text-transform: uppercase;
     }
 
-    .section-header {
+    .section-large {
         text-align: center;
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         font-weight: 800;
-        margin-bottom: 0.5rem;
-    }
-
-    .section-sub {
-        text-align: center;
-        opacity: 0.6;
         margin-bottom: 3rem;
-        font-size: 1.1rem;
-        max-width: 720px;
-        margin-left: auto;
-        margin-right: auto;
     }
 
-    /* BOOK SECTIONS (Stripe Press style) */
+    /* TWO-COLUMN ECOSYSTEM BAND */
+    .ecosystem {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 3rem;
+        max-width: 1300px;
+        margin: 0 auto 5rem;
+        padding: 0 3rem;
+        align-items: start;
+    }
+
+    .eco-card {
+        background: #0b0b0b;
+        padding: 2rem;
+        border-radius: 14px;
+        border: 1px solid #1a1a1a;
+    }
+
+    .eco-img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+        border: 1px solid #222;
+    }
+
+    .eco-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 0.6rem;
+    }
+
+    .eco-desc {
+        opacity: 0.8;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        line-height: 1.7;
+    }
+
+    .eco-btn {
+        border: 1px solid #777;
+        padding: 0.8rem 1.2rem;
+        border-radius: 6px;
+        font-size: 1rem;
+        display: inline-block;
+        width: fit-content;
+        transition: 0.25s;
+    }
+
+    .eco-btn:hover {
+        border-color: #fff;
+        padding-left: 1.35rem;
+    }
+
+    /* BOOK SECTIONS */
     .book-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -175,15 +218,14 @@
         padding: 0.9rem 1.2rem;
         border-radius: 6px;
         font-size: 1rem;
-        text-align: left;
-        width: fit-content;
         cursor: pointer;
         transition: 0.25s;
+        width: fit-content;
     }
 
     .book-btn:hover {
         border-color: #fff;
-        padding-left: 1.4rem;
+        padding-left: 1.35rem;
     }
 
     /* ABOUT */
@@ -254,11 +296,41 @@
     </p>
 </section>
 
-<!-- NEW ECOSYSTEM HEADER -->
-<div class="section-header">Welcome to the New Paradigm.</div>
-<p class="section-sub">Explore resources for evolution.</p>
+<!-- NEW ECOSYSTEM SECTION -->
+<div class="section-small">E C O S Y S T E M</div>
+<div class="section-large">Enter the New Paradigm</div>
 
-<!-- STRIPE-PRESS STYLE BOOK SECTION #1 -->
+<div class="ecosystem">
+
+    <!-- HUMAN+ -->
+    <div class="eco-card">
+        <img src="assets/images/L1.png" class="eco-img" alt="Human+" />
+        <div class="eco-title">Human+™</div>
+        <div class="eco-desc">
+            Become the upgraded human in the age of intelligence.  
+            A weekly transmission on identity, perception, and navigating an accelerating future — delivered straight to your inbox.
+        </div>
+        <a href="https://chasepremone.substack.com" class="eco-btn" target="_blank" rel="noopener noreferrer">Read on Substack →</a>
+    </div>
+
+    <!-- ASSEMBLY -->
+    <div class="eco-card">
+        <img src="assets/images/R1.png" class="eco-img" alt="The Assembly" />
+        <div class="eco-title">The Assembly</div>
+        <div class="eco-desc">
+            Turn your insight into income and grow alongside a group of like-minded high-agency builders.  
+            Architect a life rooted in your true identity.
+        </div>
+        <a href="https://www.skool.com/the-assembly-8278/about" class="eco-btn" target="_blank" rel="noopener noreferrer">Join the Community →</a>
+    </div>
+
+</div>
+
+<!-- RESOURCES SECTION -->
+<div class="section-small">R E S O U R C E S</div>
+<div class="section-large">Upgrade Your Reality</div>
+
+<!-- BOOK SECTION #1 -->
 <div class="book-section">
     <img src="assets/images/book1.png" class="book-img" alt="Book One" />
 
@@ -267,8 +339,7 @@
         <div class="book-author">By Chase Premone</div>
 
         <div class="book-desc">
-            Architect of Reality™ is a field manual for building the only structure that truly shapes your future: yourself.
-            A blueprint for clarity, discipline, and identity construction in an age defined by intelligence, acceleration, and existential choice.
+            Architect of Reality™ is a field manual for building the only structure that truly shapes your future: yourself. A blueprint for clarity, discipline, and identity construction in an age defined by intelligence, acceleration, and existential choice.
         </div>
 
         <div class="book-buttons">
@@ -278,18 +349,17 @@
     </div>
 </div>
 
-<!-- STRIPE-PRESS STYLE BOOK SECTION #2 -->
+<!-- BOOK SECTION #2 -->
 <div class="book-section">
     <img src="assets/images/book2.png" class="book-img" alt="Book Two" />
 
     <div>
-        <div class="book-title">Second Book Placeholder</div>
+        <div class="book-title">Existential Economics</div>
         <div class="book-author">By Chase Premone</div>
 
         <div class="book-desc">
-            Another placeholder for the companion book in your mythos. 
-            This will eventually house the crystallized frameworks, systems,
-            and evolutionary architectures behind the Human+ worldview.
+            Existential Economics reframes value through a single lens: identity.
+In an age defined by exponential intelligence, this book shows how clarity, sovereignty, and self-authorship become the ultimate forms of leverage & the foundation for designing a future you actually want to live in.
         </div>
 
         <div class="book-buttons">
@@ -300,7 +370,7 @@
 </div>
 
 <!-- ABOUT -->
-<div class="section-title">A B O U T &nbsp; M E</div>
+<div class="section-small">A B O U T</div>
 
 <div class="about-container">
     <div class="about-layout">
