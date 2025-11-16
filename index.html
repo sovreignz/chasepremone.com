@@ -31,7 +31,7 @@
     /* NAV */
     .nav {
         width: 100%;
-        padding: 1.8rem 3rem;
+        padding: 1.6rem 3rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -39,7 +39,7 @@
         top: 0;
         left: 0;
         z-index: 20;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.65);
         backdrop-filter: blur(6px);
         border-bottom: 1px solid #111;
     }
@@ -52,14 +52,14 @@
 
     .nav-link {
         font-size: 0.9rem;
-        letter-spacing: 1px;
-        opacity: 0.75;
+        letter-spacing: 0.5px;
+        opacity: 0.8;
         text-transform: uppercase;
     }
 
     /* HERO */
     .hero {
-        padding-top: 10rem;
+        padding-top: 9.5rem;
         padding-bottom: 6rem;
         text-align: center;
         max-width: 900px;
@@ -67,8 +67,8 @@
     }
 
     .hero-name {
-        letter-spacing: 14px;
-        font-size: 1.1rem;
+        letter-spacing: 8px; /* reduced spacing */
+        font-size: 1rem;
         color: #aaa;
         margin-bottom: 1.5rem;
     }
@@ -85,20 +85,21 @@
         font-weight: 800;
         opacity: 0.6;
         line-height: 1.15;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     .hero-text {
         font-size: 1.1rem;
-        opacity: 0.75;
+        opacity: 0.8;
         max-width: 650px;
         margin: 0.5rem auto 2rem;
     }
 
+    /* SECTION TITLES */
     .section-title {
         text-align: center;
         font-size: 1rem;
-        letter-spacing: 10px;
+        letter-spacing: 9px;
         color: #777;
         margin-top: 6rem;
         margin-bottom: 0.5rem;
@@ -122,7 +123,7 @@
         margin-right: auto;
     }
 
-    /* RESOURCE GRID */
+    /* GRID */
     .resource-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
@@ -173,7 +174,7 @@
 
     .about-img {
         width: 100%;
-        border-radius: 100%;
+        border-radius: 22px; /* new square w/ rounded corners */
         border: 2px solid #333;
         object-fit: cover;
     }
@@ -182,11 +183,6 @@
         font-size: 2.8rem;
         font-weight: 800;
         margin-bottom: 0.3rem;
-    }
-
-    .about-sub {
-        opacity: 0.6;
-        margin-bottom: 2rem;
     }
 
     .about-text {
@@ -221,13 +217,14 @@
     <div class="hero-name">C H A S E &nbsp; P R E M O N E</div>
 
     <div class="hero-title">Design Your Mind.</div>
-    <div class="hero-subtitle">Direct Your Future.</div>
+    <div class="hero-subtitle">Own Your Future.</div>
 
-    <p class="hero-text">Letters from the edge of the next reality.</p>
-
-    <!-- SUBSTACK EMBED -->
-    <iframe src="https://chasepremone.substack.com/embed" width="480" height="320" style="border:1px solid #EEE; background:white; margin-top:2rem; border-radius:8px;" frameborder="0" scrolling="no"></iframe>
-
+    <!-- CLICKABLE SUBHEADER -->
+    <p class="hero-text">
+        <a href="https://chasepremone.substack.com" style="border-bottom:1px solid #444;">
+            Letters from the edge of the next reality.
+        </a>
+    </p>
 </section>
 
 <!-- ECOSYSTEM -->
@@ -239,7 +236,6 @@
 
 <div class="resource-grid">
 
-    <!-- Human+ -->
     <div class="resource-card">
         <img src="assets/images/humanplus.png" class="resource-image" alt="Human+" />
         <div class="resource-title">Human+</div>
@@ -247,10 +243,9 @@
             The upgraded model of you.  
             A new identity, a new operating system, a new trajectory.
         </div>
-        <a href="#">Enter Human+</a>
+        <a href="https://www.skool.com/the-assembly-8278/about">Enter Human+</a>
     </div>
 
-    <!-- Architect of Reality -->
     <div class="resource-card">
         <img src="assets/images/aor.png" class="resource-image" alt="Architect of Reality" />
         <div class="resource-title">Architect of Reality™</div>
@@ -261,7 +256,6 @@
         <a href="#">Explore AOR</a>
     </div>
 
-    <!-- Third Section -->
     <div class="resource-card">
         <img src="assets/images/heroimage.png" class="resource-image" alt="Future Systems" />
         <div class="resource-title">Future Systems</div>
@@ -283,24 +277,35 @@
 
         <div>
             <div class="about-name">Who Is Chase Premone?</div>
-            <div class="about-sub"></div>
 
             <div class="about-text">
-                I study the mechanics of identity, intelligence, and human potential —  
+                I study the mechanics of identity, intelligence, and human potential —
                 and I turn that knowledge into tools for building a life of clarity, sovereignty, and direction.
                 <br><br>
-                My work exists for people who feel called to build something real —  
+                My work exists for people who feel called to build something real —
                 a self, a philosophy, a reality that reflects who they truly are.
                 <br><br>
-                I don’t teach motivation.  
+                I don’t teach motivation.
                 I teach architecture.
                 <br><br>
-                If you want the next level of your life, you don’t wait for it.  
+                If you want the next level of your life, you don’t wait for it.
                 You build the person capable of living it.
             </div>
         </div>
 
     </div>
+</div>
+
+<!-- SUBSTACK MOVED HERE (NO BORDER) -->
+<div style="display:flex; justify-content:center; margin-top:3rem;">
+    <iframe 
+        src="https://chasepremone.substack.com/embed" 
+        width="480" 
+        height="320"
+        style="border:none; background:none; border-radius:12px;"
+        frameborder="0"
+        scrolling="no">
+    </iframe>
 </div>
 
 <footer>
