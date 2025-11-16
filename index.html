@@ -1,108 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chase Premone • Systems Architect</title>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Space+Mono&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      background-color: #0a0a0a;
-      color: #e5e5e5;
-      font-family: 'Unbounded', sans-serif;
-    }
-    .terminal {
-      font-family: 'Space Mono', monospace;
-    }
-    .glow {
-      box-shadow: 0 0 24px rgba(255, 255, 255, 0.1);
-    }
-    .gradient-text {
-      background: linear-gradient(to right, #6366f1, #14b8a6);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chase Premone — Architecting Reality</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0d0d0f;
+            color: #e6e6e6;
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(120deg, #1b1b1f, #0d0d10, #101014);
+        }
+
+        header img {
+            width: 160px;
+            height: 160px;
+            border-radius: 100%;
+            object-fit: cover;
+            border: 2px solid #3a3a40;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        h2.section-title {
+            font-size: 2rem;
+            margin-top: 4rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            letter-spacing: 0.5px;
+            color: #cecece;
+        }
+
+        p {
+            max-width: 780px;
+            margin: 1rem auto;
+            text-align: center;
+            opacity: 0.85;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ecosystem-card {
+            background: #151518;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #222227;
+            text-align: center;
+            transition: 0.25s;
+        }
+
+        .ecosystem-card:hover {
+            transform: translateY(-6px);
+            border-color: #44444e;
+        }
+
+        .ecosystem-card h3 {
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-image-placeholder, .ecosystem-image-placeholder {
+            width: 100%;
+            height: 280px;
+            background: #222;
+            border-radius: 14px;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7a7a80;
+            font-size: 1rem;
+            border: 1px dashed #444;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            opacity: 0.6;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+    </style>
 </head>
-<body class="overflow-x-hidden">
 
-<!-- Hero Section -->
-<section class="min-h-screen flex flex-col items-center justify-center text-center px-6">
-  <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-4 tracking-tight">Chase Premone</h1>
-  <p class="text-slate-400 text-lg max-w-2xl mb-6">
-    Systems Architect. Myth Builder. AI Strategist.  
-    I design for the age of sovereign intelligence.
-  </p>
-  <a href="#portfolio" class="bg-white text-black px-6 py-3 rounded-md text-sm uppercase font-mono tracking-wide hover:bg-slate-200 transition">View Work</a>
-</section>
+<body>
 
-<!-- Portfolio Grid -->
-<section id="portfolio" class="py-20 px-6 max-w-6xl mx-auto">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Builds & Blueprints</h2>
+    <!-- HEADER -->
+    <header>
+        <img src="HEADSHOT_PLACEHOLDER.jpg" alt="Chase Premone Headshot" />
+        <h1>Chase Premone</h1>
+        <p>Author • Architect of Reality • Myth-Tech Visionary • Human+ Ecosystem Builder</p>
+    </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+    <!-- HERO / POSITIONING -->
+    <div class="container">
 
-    <!-- Project 1 -->
-    <div class="bg-[#111] p-6 rounded-xl glow transition hover:scale-105">
-      <h3 class="text-xl font-semibold mb-2">🧠 Paradigm OS</h3>
-      <p class="text-sm text-slate-400">A local-first AI operating system for creative sovereignty. Modular, vectorized, voice-controlled. Built for total independence.</p>
+        <div class="hero-image-placeholder">
+            HERO IMAGE — Placeholder (Your Cinematic Portrait or Symbolic Myth-Tech Artwork)
+        </div>
+
+        <h2 class="section-title">I Build Systems That Expand Human Possibility</h2>
+        <p>
+            I’m pioneering a new frontier where personal identity, intelligence amplification, myth-making, 
+            and sovereign living converge. My work spans philosophy, media, AI, architecture, 
+            and cultural design — woven into a cohesive ecosystem that empowers individuals to become 
+            upgraded versions of themselves and build realities aligned with their deepest code.
+        </p>
     </div>
 
-    <!-- Project 2 -->
-    <div class="bg-[#111] p-6 rounded-xl glow transition hover:scale-105">
-      <h3 class="text-xl font-semibold mb-2">🚀 KXROS Systems</h3>
-      <p class="text-sm text-slate-400">High-leverage automation microservices powering content, ops, and scale. Includes ContentOS, AdScaleOS, TractionOS.</p>
+    <!-- ECOSYSTEM -->
+    <div class="container">
+        <h2 class="section-title">The Ecosystem</h2>
+        <p>
+            Everything I build is part of a coherent ontology — a living constellation of projects designed 
+            to elevate human agency, creativity, and sovereignty.
+        </p>
+
+        <div class="ecosystem-grid">
+            
+            <!-- Human+ -->
+            <div class="ecosystem-card">
+                <div class="ecosystem-image-placeholder">
+                    HUMAN+ VISUAL PLACEHOLDER
+                </div>
+                <h3>Human+</h3>
+                <p>
+                    The upgraded model of human potential — merging identity architecture, performance, 
+                    and high-agency worldview engineering.
+                </p>
+            </div>
+
+            <!-- Architecting Reality -->
+            <div class="ecosystem-card">
+                <div class="ecosystem-image-placeholder">
+                    ARCHITECTING REALITY VISUAL PLACEHOLDER
+                </div>
+                <h3>Architecting Reality™</h3>
+                <p>
+                    A framework for designing your inner and outer world with precision — transforming clarity 
+                    into artifacts, ventures, and lived philosophy.
+                </p>
+            </div>
+
+            <!-- Myth-Tech -->
+            <div class="ecosystem-card">
+                <div class="ecosystem-image-placeholder">
+                    MYTH-TECH VISUAL PLACEHOLDER
+                </div>
+                <h3>Myth-Tech</h3>
+                <p>
+                    Where narrative meets emerging technology. I craft mythologies that shape culture, 
+                    perception, and the identity of future civilizations.
+                </p>
+            </div>
+
+            <!-- Community -->
+            <div class="ecosystem-card">
+                <div class="ecosystem-image-placeholder">
+                    COMMUNITY VISUAL PLACEHOLDER
+                </div>
+                <h3>The Community</h3>
+                <p>
+                    A collective of high-agency builders, thinkers, and creators forging the next chapter 
+                    of human capability together.
+                </p>
+            </div>
+
+        </div>
     </div>
 
-    <!-- Project 3 -->
-    <div class="bg-[#111] p-6 rounded-xl glow transition hover:scale-105">
-      <h3 class="text-xl font-semibold mb-2">🌍 Enter Ætheria</h3>
-      <p class="text-sm text-slate-400">A sovereign real estate & experience node. Designed for aligned tribes, regenerative luxury, and mythic permanence.</p>
+    <!-- CALL TO ACTION -->
+    <div class="container">
+        <h2 class="section-title">Enter The Next Reality</h2>
+        <p>
+            Subscribe, join the ecosystem, or explore the frameworks shaping the sovereign individual of tomorrow.
+        </p>
+
+        <p style="margin-top: 2rem;">
+            <a href="#" style="color: #9cc9ff; text-decoration: underline;">Get Early Access</a>
+        </p>
     </div>
 
-    <!-- Project 4 -->
-    <div class="bg-[#111] p-6 rounded-xl glow transition hover:scale-105">
-      <h3 class="text-xl font-semibold mb-2">📡 Signal Sensei</h3>
-      <p class="text-sm text-slate-400">Digital dojo for high-signal tools—prompts, macros, models, decks. Tactical assets for traders, builders, and sentinels.</p>
-    </div>
-
-    <!-- Project 5 -->
-    <div class="bg-[#111] p-6 rounded-xl glow transition hover:scale-105">
-      <h3 class="text-xl font-semibold mb-2">🎓 Paradigm Prep</h3>
-      <p class="text-sm text-slate-400">Curriculum for the new age. A ritual path to becoming ungovernable through literacy in myth, tech, and self-discipline.</p>
-    </div>
-
-    <!-- Project 6 -->
-    <div class="bg-[#111] p-6 rounded-xl glow transition hover:scale-105">
-      <h3 class="text-xl font-semibold mb-2">🧬 ZeroStack</h3>
-      <p class="text-sm text-slate-400">The sovereign web stack. Launch beautiful, custom-coded sites for $0. GitHub + DNS + vision. No rent, no gatekeepers.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- About -->
-<section class="px-6 py-20 max-w-4xl mx-auto text-center">
-  <h2 class="text-3xl font-bold mb-6">Built in Silence. Moved by Signal.</h2>
-  <p class="text-slate-400 text-md leading-relaxed">
-    I don’t just build tech—I craft ecosystems, wield leverage, and encode ideology into systems.  
-    From creative automation to sovereignty architecture, my work is a codebase of truth.  
-    This is my life’s transmission. You're invited to listen.
-  </p>
-</section>
-
-<!-- Contact -->
-<section class="px-6 pb-24 text-center">
-  <h3 class="text-2xl font-semibold mb-2">Let’s Build</h3>
-  <p class="text-sm text-slate-400 mb-6">Open to aligned collabs, deals, and sovereign partnerships.</p>
-  <a href="mailto:chase@kxros.io" class="bg-gradient-to-r from-indigo-500 to-green-400 text-white px-6 py-3 rounded-lg text-sm font-mono tracking-wide hover:opacity-90">Reach Out</a>
-</section>
-
-<!-- Footer -->
-<footer class="text-xs text-slate-500 text-center mt-20 py-10 border-t border-slate-800">
-  &copy; 2025 Chase Premone • All Rights Reserved
-</footer>
+    <footer>
+        © 2025 Chase Premone. All Rights Reserved.
+    </footer>
 
 </body>
 </html>
