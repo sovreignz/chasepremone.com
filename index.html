@@ -82,19 +82,13 @@
             letter-spacing: 0.5px;
         }
 
-        .hero-image-placeholder, .ecosystem-image-placeholder {
+        .ecosystem-card img {
             width: 100%;
             height: 280px;
-            background: #222;
+            object-fit: cover;
             border-radius: 14px;
-            margin-top: 1.5rem;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #7a7a80;
-            font-size: 1rem;
-            border: 1px dashed #444;
+            border: 1px solid #333;
         }
 
         footer {
@@ -111,17 +105,18 @@
 
     <!-- HEADER -->
     <header>
-        <img src="HEADSHOT_PLACEHOLDER.jpg" alt="Chase Premone Headshot" />
+        <img src="assets/images/headshot.png" alt="Chase Premone Headshot" />
         <h1>Chase Premone</h1>
         <p>Author • Architect of Reality • Myth-Tech Visionary • Human+ Ecosystem Builder</p>
     </header>
 
-    <!-- HERO / POSITIONING -->
+    <!-- HERO -->
     <div class="container">
-
-        <div class="hero-image-placeholder">
-            HERO IMAGE — Placeholder (Your Cinematic Portrait or Symbolic Myth-Tech Artwork)
-        </div>
+        <img 
+            src="assets/images/heroimage.png" 
+            alt="Hero Image" 
+            style="width:100%; border-radius:14px; border:1px solid #222;" 
+        />
 
         <h2 class="section-title">I Build Systems That Expand Human Possibility</h2>
         <p>
@@ -141,12 +136,10 @@
         </p>
 
         <div class="ecosystem-grid">
-            
+
             <!-- Human+ -->
             <div class="ecosystem-card">
-                <div class="ecosystem-image-placeholder">
-                    HUMAN+ VISUAL PLACEHOLDER
-                </div>
+                <img src="assets/images/humanplus.png" alt="Human+ Visual" />
                 <h3>Human+</h3>
                 <p>
                     The upgraded model of human potential — merging identity architecture, performance, 
@@ -156,9 +149,7 @@
 
             <!-- Architecting Reality -->
             <div class="ecosystem-card">
-                <div class="ecosystem-image-placeholder">
-                    ARCHITECTING REALITY VISUAL PLACEHOLDER
-                </div>
+                <img src="assets/images/aor.png" alt="Architecting Reality" />
                 <h3>Architecting Reality™</h3>
                 <p>
                     A framework for designing your inner and outer world with precision — transforming clarity 
@@ -166,11 +157,9 @@
                 </p>
             </div>
 
-            <!-- Myth-Tech -->
+            <!-- Myth-Tech (replaced placeholder) -->
             <div class="ecosystem-card">
-                <div class="ecosystem-image-placeholder">
-                    MYTH-TECH VISUAL PLACEHOLDER
-                </div>
+                <img src="assets/images/heroimage.png" alt="Myth-Tech Visual" />
                 <h3>Myth-Tech</h3>
                 <p>
                     Where narrative meets emerging technology. I craft mythologies that shape culture, 
@@ -178,22 +167,10 @@
                 </p>
             </div>
 
-            <!-- Community -->
-            <div class="ecosystem-card">
-                <div class="ecosystem-image-placeholder">
-                    COMMUNITY VISUAL PLACEHOLDER
-                </div>
-                <h3>The Community</h3>
-                <p>
-                    A collective of high-agency builders, thinkers, and creators forging the next chapter 
-                    of human capability together.
-                </p>
-            </div>
-
         </div>
     </div>
 
-    <!-- CALL TO ACTION -->
+    <!-- CTA -->
     <div class="container">
         <h2 class="section-title">Enter The Next Reality</h2>
         <p>
