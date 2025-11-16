@@ -9,6 +9,7 @@
 
 <style>
 
+    /* GLOBAL */
     body {
         margin: 0;
         font-family: 'Inter', sans-serif;
@@ -31,9 +32,8 @@
     /* NAV */
     .nav {
         width: 100%;
-        padding: 1.6rem 3rem;
+        padding: 1.4rem 2rem;
         display: flex;
-        justify-content: flex-start;
         align-items: center;
         position: fixed;
         top: 0;
@@ -45,44 +45,46 @@
     }
 
     .nav-logo {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 800;
         letter-spacing: 1px;
     }
 
     /* HERO */
     .hero {
-        padding-top: 9.5rem;
-        padding-bottom: 6rem;
+        padding-top: 8.5rem;
+        padding-bottom: 4rem;
         text-align: center;
         max-width: 900px;
         margin: 0 auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
 
     .hero-name {
-        letter-spacing: 8px;
-        font-size: 1rem;
+        letter-spacing: 7px;
+        font-size: 0.9rem;
         color: #aaa;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.3rem;
     }
 
     .hero-title {
-        font-size: 3.8rem;
+        font-size: 3.4rem;
         font-weight: 800;
-        line-height: 1.15;
-        margin-bottom: 1rem;
+        line-height: 1.18;
+        margin-bottom: 0.6rem;
     }
 
     .hero-subtitle {
-        font-size: 3.8rem;
+        font-size: 3.4rem;
         font-weight: 800;
         opacity: 0.6;
-        line-height: 1.15;
+        line-height: 1.18;
         margin-bottom: 1rem;
     }
 
     .hero-text {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         opacity: 0.8;
         max-width: 650px;
         margin: 0.5rem auto 2rem;
@@ -91,35 +93,34 @@
     /* SECTION HEADERS */
     .section-small {
         text-align: center;
-        font-size: 0.95rem;
-        letter-spacing: 9px;
+        font-size: 0.9rem;
+        letter-spacing: 8px;
         color: #777;
-        margin-top: 4rem;
+        margin-top: 3.5rem;
         margin-bottom: 0.5rem;
         text-transform: uppercase;
     }
 
     .section-large {
         text-align: center;
-        font-size: 2.6rem;
+        font-size: 2.4rem;
         font-weight: 800;
-        margin-bottom: 3rem;
+        margin-bottom: 2.5rem;
     }
 
-    /* TWO-COLUMN ECOSYSTEM BAND */
+    /* ECOSYSTEM */
     .ecosystem {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-        gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 2.5rem;
         max-width: 1300px;
-        margin: 0 auto 5rem;
-        padding: 0 3rem;
-        align-items: start;
+        margin: 0 auto 4rem;
+        padding: 0 2rem;
     }
 
     .eco-card {
         background: #0b0b0b;
-        padding: 2rem;
+        padding: 1.8rem;
         border-radius: 14px;
         border: 1px solid #1a1a1a;
     }
@@ -127,28 +128,28 @@
     .eco-img {
         width: 100%;
         border-radius: 10px;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.3rem;
         border: 1px solid #222;
     }
 
     .eco-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         font-weight: 700;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0.5rem;
     }
 
     .eco-desc {
         opacity: 0.8;
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-        line-height: 1.7;
+        font-size: 0.95rem;
+        margin-bottom: 1.4rem;
+        line-height: 1.65;
     }
 
     .eco-btn {
         border: 1px solid #777;
-        padding: 0.8rem 1.2rem;
+        padding: 0.75rem 1.1rem;
         border-radius: 6px;
-        font-size: 1rem;
+        font-size: 0.95rem;
         display: inline-block;
         width: fit-content;
         transition: 0.25s;
@@ -156,17 +157,17 @@
 
     .eco-btn:hover {
         border-color: #fff;
-        padding-left: 1.35rem;
+        padding-left: 1.3rem;
     }
 
     /* BOOK SECTIONS */
     .book-section {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        gap: 2.5rem;
         max-width: 1300px;
-        margin: 5rem auto;
-        padding: 2rem 3rem;
+        margin: 4rem auto;
+        padding: 1rem 2rem;
         align-items: center;
     }
 
@@ -179,38 +180,38 @@
 
     .book-title {
         font-family: 'Playfair Display', serif;
-        font-size: 2rem;
+        font-size: 1.9rem;
         font-weight: 700;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.4rem;
     }
 
     .book-author {
         font-family: 'Playfair Display', serif;
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         opacity: 0.8;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.4rem;
     }
 
     .book-desc {
-        font-size: 1rem;
+        font-size: 0.95rem;
         opacity: 0.8;
-        margin-bottom: 2rem;
+        margin-bottom: 1.8rem;
         max-width: 90%;
-        line-height: 1.7;
+        line-height: 1.65;
     }
 
     .book-buttons {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
-        margin-top: 1rem;
+        gap: 0.9rem;
+        margin-top: 0.8rem;
     }
 
     .book-btn {
         border: 1px solid #777;
-        padding: 0.9rem 1.2rem;
+        padding: 0.85rem 1.1rem;
         border-radius: 6px;
-        font-size: 1rem;
+        font-size: 0.95rem;
         cursor: pointer;
         transition: 0.25s;
         width: fit-content;
@@ -218,30 +219,30 @@
 
     .book-btn:hover {
         border-color: #fff;
-        padding-left: 1.35rem;
+        padding-left: 1.3rem;
     }
 
-    /* CANON STRIP */
+    /* CANON */
     .canon-container {
         max-width: 1300px;
-        margin: 2rem auto 5rem;
-        padding: 0 3rem;
+        margin: 2rem auto 4rem;
+        padding: 0 2rem;
         text-align: center;
     }
 
     .canon-grid {
         display: flex;
         justify-content: center;
-        gap: 3rem;
+        gap: 2.5rem;
         margin-top: 2rem;
         flex-wrap: wrap;
     }
 
     .canon-card {
-        width: 220px;
+        width: 200px;
         background: #0b0b0b;
         border: 1px solid #1a1a1a;
-        padding: 1.5rem;
+        padding: 1.3rem;
         border-radius: 12px;
         text-align: center;
     }
@@ -250,72 +251,162 @@
         width: 100%;
         border-radius: 8px;
         border: 1px solid #222;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
     }
 
     .canon-title {
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 700;
-        margin-bottom: 1rem;
+        margin-bottom: 0.8rem;
     }
 
     .canon-btn {
         border: 1px solid #777;
-        padding: 0.6rem 1rem;
+        padding: 0.5rem 0.9rem;
         border-radius: 6px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         display: block;
-        margin: 0.3rem auto;
+        margin: 0.25rem auto;
         width: fit-content;
         transition: 0.25s;
     }
 
     .canon-btn:hover {
         border-color: #fff;
-        padding-left: 1.25rem;
+        padding-left: 1.2rem;
     }
 
     /* ABOUT */
     .about-container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 6rem 3rem;
+        padding: 4rem 2rem;
     }
 
     .about-layout {
         display: grid;
-        grid-template-columns: 340px 1fr;
-        gap: 4rem;
+        grid-template-columns: 320px 1fr;
+        gap: 3rem;
         align-items: start;
     }
 
     .about-img {
         width: 100%;
-        border-radius: 22px;
+        border-radius: 20px;
         border: 2px solid #333;
         object-fit: cover;
     }
 
     .about-name {
-        font-size: 2.8rem;
+        font-size: 2.6rem;
         font-weight: 800;
         margin-bottom: 0.3rem;
     }
 
     .about-text {
         opacity: 0.85;
-        line-height: 1.75;
-        font-size: 1.05rem;
+        line-height: 1.7;
+        font-size: 1rem;
         max-width: 90%;
+    }
+
+    /* SUBSTACK */
+    .substack-embed-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2.5rem;
+        padding-bottom: 2rem;
     }
 
     footer {
         text-align: center;
         opacity: 0.4;
-        padding: 4rem 2rem;
-        margin-top: 6rem;
-        font-size: 0.9rem;
+        padding: 3rem 1.5rem;
+        margin-top: 4rem;
+        font-size: 0.85rem;
         border-top: 1px solid #111;
+    }
+
+    /* ========================= */
+    /* RESPONSIVE BREAKPOINTS    */
+    /* ========================= */
+
+    @media (max-width: 1024px) {
+
+        .hero-title, .hero-subtitle {
+            font-size: 3rem;
+        }
+
+        .book-section {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .book-desc { max-width: 100%; margin-left: auto; margin-right: auto; }
+
+        .about-layout {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+
+        .about-img {
+            max-width: 320px;
+            margin: 0 auto 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+
+        .hero-title, .hero-subtitle {
+            font-size: 2.5rem;
+        }
+
+        .hero-name { font-size: 0.85rem; letter-spacing: 6px; }
+
+        .section-large { font-size: 2.1rem; }
+
+        .ecosystem { padding: 0 1.5rem; }
+
+        .book-section { padding: 1rem 1.5rem; }
+
+        .canon-grid { gap: 1.8rem; }
+
+        iframe {
+            width: 100% !important;
+            height: 300px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+
+        .nav { padding: 1.2rem 1.4rem; }
+        .nav-logo { font-size: 1.4rem; }
+
+        .hero {
+            padding-top: 7rem;
+            padding-bottom: 3rem;
+        }
+
+        .hero-title, .hero-subtitle {
+            font-size: 2.1rem;
+            line-height: 1.22;
+        }
+
+        .hero-text {
+            font-size: 0.95rem;
+        }
+
+        .section-large { font-size: 1.85rem; }
+
+        .ecosystem { grid-template-columns: 1fr; }
+
+        .canon-card {
+            width: 170px;
+            padding: 1rem;
+        }
+
+        .about-name { font-size: 2.2rem; }
+        .about-text { font-size: 0.95rem; }
     }
 
 </style>
@@ -359,13 +450,13 @@
         <a href="https://chasepremone.substack.com" class="eco-btn" target="_blank" rel="noopener noreferrer">Read on Substack →</a>
     </div>
 
-    <!-- ASSEMBLY -->
+    <!-- ACADEMY -->
     <div class="eco-card">
-        <img src="assets/images/R1.png" class="eco-img" alt="The Assembly" />
+        <img src="assets/images/R1.png" class="eco-img" alt="The Frontier Academy" />
         <div class="eco-title">The Frontier Academy™</div>
         <div class="eco-desc">
-            An Academy for high-agency humans. Turn insight into income.
-Refine who you are, strengthen how you think, leverage intelligent tools and construct the reality you actually want to live in.
+            A discipline for intentional humans.  
+            Refine identity, strengthen clarity, and construct the reality you want to live in.
         </div>
         <a href="https://www.skool.com/the-assembly-8278/about" class="eco-btn" target="_blank" rel="noopener noreferrer">Join the Community →</a>
     </div>
@@ -376,7 +467,7 @@ Refine who you are, strengthen how you think, leverage intelligent tools and con
 <div class="section-small">R E S O U R C E S</div>
 <div class="section-large">Upgrade Your Reality</div>
 
-<!-- FEATURED BOOK #1 -->
+<!-- BOOK #1 -->
 <div class="book-section">
     <img src="assets/images/book1.png" class="book-img" alt="Book One" />
 
@@ -389,13 +480,13 @@ Refine who you are, strengthen how you think, leverage intelligent tools and con
         </div>
 
         <div class="book-buttons">
-            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
-            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+            <a href="#" class="book-btn">Preorder</a>
+            <a href="#" class="book-btn">Join Waitlist</a>
         </div>
     </div>
 </div>
 
-<!-- FEATURED BOOK #2 -->
+<!-- BOOK #2 -->
 <div class="book-section">
     <img src="assets/images/book2.png" class="book-img" alt="Book Two" />
 
@@ -408,13 +499,13 @@ Refine who you are, strengthen how you think, leverage intelligent tools and con
         </div>
 
         <div class="book-buttons">
-            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
-            <a href="#" class="book-btn" target="_blank" rel="noopener noreferrer">Join Waitlist</a>
+            <a href="#" class="book-btn">Preorder</a>
+            <a href="#" class="book-btn">Join Waitlist</a>
         </div>
     </div>
 </div>
 
-<!-- THE CANON -->
+<!-- CANON -->
 <div class="canon-container">
     <div class="section-small">T H E &nbsp; C A N O N</div>
     <div class="section-large">Foundational Works</div>
@@ -425,16 +516,16 @@ Refine who you are, strengthen how you think, leverage intelligent tools and con
         <div class="canon-card">
             <img src="assets/images/book1.png" class="canon-img" alt="Architect of Reality" />
             <div class="canon-title">Architect of Reality™</div>
-            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
-            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Waitlist</a>
+            <a href="#" class="canon-btn">Preorder</a>
+            <a href="#" class="canon-btn">Waitlist</a>
         </div>
 
         <!-- Canon Card 2 -->
         <div class="canon-card">
             <img src="assets/images/book2.png" class="canon-img" alt="Existential Economics" />
             <div class="canon-title">Existential Economics</div>
-            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Preorder</a>
-            <a href="#" class="canon-btn" target="_blank" rel="noopener noreferrer">Waitlist</a>
+            <a href="#" class="canon-btn">Preorder</a>
+            <a href="#" class="canon-btn">Waitlist</a>
         </div>
 
     </div>
@@ -469,8 +560,8 @@ Refine who you are, strengthen how you think, leverage intelligent tools and con
     </div>
 </div>
 
-<!-- SUBSTACK EMBED -->
-<div style="display:flex; justify-content:center; margin-top:3rem;">
+<!-- SUBSTACK -->
+<div class="substack-embed-container">
     <iframe 
         src="https://chasepremone.substack.com/embed" 
         width="480" 
