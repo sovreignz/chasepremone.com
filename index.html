@@ -1,580 +1,471 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Chase Premone — Architect of Reality</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-    /* GLOBAL */
-    body {
-        margin: 0;
-        font-family: 'Inter', sans-serif;
-        background-color: #000;
-        color: #fff;
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.6;
-    }
-
-    a {
-        color: #fff;
-        text-decoration: none;
-        border-bottom: 1px solid #333;
-        padding-bottom: 2px;
-        transition: 0.2s;
-    }
-
-    a:hover { border-bottom-color: #fff; }
-
-    /* NAV */
-    .nav {
-        width: 100%;
-        padding: 1.4rem 2rem;
-        display: flex;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 20;
-        background: rgba(0,0,0,0.65);
-        backdrop-filter: blur(6px);
-        border-bottom: 1px solid #111;
-    }
-
-    .nav-logo {
-        font-size: 1.6rem;
-        font-weight: 800;
-        letter-spacing: 1px;
-    }
-
-    /* HERO */
-    .hero {
-        padding-top: 8.5rem;
-        padding-bottom: 4rem;
-        text-align: center;
-        max-width: 900px;
-        margin: 0 auto;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-    }
-
-    .hero-name {
-        letter-spacing: 7px;
-        font-size: 0.9rem;
-        color: #aaa;
-        margin-bottom: 1.3rem;
-    }
-
-    .hero-title {
-        font-size: 3.4rem;
-        font-weight: 800;
-        line-height: 1.18;
-        margin-bottom: 0.6rem;
-    }
-
-    .hero-subtitle {
-        font-size: 3.4rem;
-        font-weight: 800;
-        opacity: 0.6;
-        line-height: 1.18;
-        margin-bottom: 1rem;
-    }
-
-    .hero-text {
-        font-size: 1.05rem;
-        opacity: 0.8;
-        max-width: 650px;
-        margin: 0.5rem auto 2rem;
-    }
-
-    /* SECTION HEADERS */
-    .section-small {
-        text-align: center;
-        font-size: 0.9rem;
-        letter-spacing: 8px;
-        color: #777;
-        margin-top: 3.5rem;
-        margin-bottom: 0.5rem;
-        text-transform: uppercase;
-    }
-
-    .section-large {
-        text-align: center;
-        font-size: 2.4rem;
-        font-weight: 800;
-        margin-bottom: 2.5rem;
-    }
-
-    /* ECOSYSTEM */
-    .ecosystem {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-        gap: 2.5rem;
-        max-width: 1300px;
-        margin: 0 auto 4rem;
-        padding: 0 2rem;
-    }
-
-    .eco-card {
-        background: #0b0b0b;
-        padding: 1.8rem;
-        border-radius: 14px;
-        border: 1px solid #1a1a1a;
-    }
-
-    .eco-img {
-        width: 100%;
-        border-radius: 10px;
-        margin-bottom: 1.3rem;
-        border: 1px solid #222;
-    }
-
-    .eco-title {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
-
-    .eco-desc {
-        opacity: 0.8;
-        font-size: 0.95rem;
-        margin-bottom: 1.4rem;
-        line-height: 1.65;
-    }
-
-    .eco-btn {
-        border: 1px solid #777;
-        padding: 0.75rem 1.1rem;
-        border-radius: 6px;
-        font-size: 0.95rem;
-        display: inline-block;
-        width: fit-content;
-        transition: 0.25s;
-    }
-
-    .eco-btn:hover {
-        border-color: #fff;
-        padding-left: 1.3rem;
-    }
-
-    /* BOOK SECTIONS */
-    .book-section {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-        max-width: 1300px;
-        margin: 4rem auto;
-        padding: 1rem 2rem;
-        align-items: center;
-    }
-
-    .book-img {
-        width: 100%;
-        border-radius: 12px;
-        border: 1px solid #222;
-        object-fit: cover;
-    }
-
-    .book-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.9rem;
-        font-weight: 700;
-        margin-bottom: 0.4rem;
-    }
-
-    .book-author {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.05rem;
-        opacity: 0.8;
-        margin-bottom: 1.4rem;
-    }
-
-    .book-desc {
-        font-size: 0.95rem;
-        opacity: 0.8;
-        margin-bottom: 1.8rem;
-        max-width: 90%;
-        line-height: 1.65;
-    }
-
-    .book-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 0.9rem;
-        margin-top: 0.8rem;
-    }
-
-    .book-btn {
-        border: 1px solid #777;
-        padding: 0.85rem 1.1rem;
-        border-radius: 6px;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: 0.25s;
-        width: fit-content;
-    }
-
-    .book-btn:hover {
-        border-color: #fff;
-        padding-left: 1.3rem;
-    }
-
-    /* CANON */
-    .canon-container {
-        max-width: 1300px;
-        margin: 2rem auto 4rem;
-        padding: 0 2rem;
-        text-align: center;
-    }
-
-    .canon-grid {
-        display: flex;
-        justify-content: center;
-        gap: 2.5rem;
-        margin-top: 2rem;
-        flex-wrap: wrap;
-    }
-
-    .canon-card {
-        width: 200px;
-        background: #0b0b0b;
-        border: 1px solid #1a1a1a;
-        padding: 1.3rem;
-        border-radius: 12px;
-        text-align: center;
-    }
-
-    .canon-img {
-        width: 100%;
-        border-radius: 8px;
-        border: 1px solid #222;
-        margin-bottom: 0.8rem;
-    }
-
-    .canon-title {
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 0.8rem;
-    }
-
-    .canon-btn {
-        border: 1px solid #777;
-        padding: 0.5rem 0.9rem;
-        border-radius: 6px;
-        font-size: 0.85rem;
-        display: block;
-        margin: 0.25rem auto;
-        width: fit-content;
-        transition: 0.25s;
-    }
-
-    .canon-btn:hover {
-        border-color: #fff;
-        padding-left: 1.2rem;
-    }
-
-    /* ABOUT */
-    .about-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 4rem 2rem;
-    }
-
-    .about-layout {
-        display: grid;
-        grid-template-columns: 320px 1fr;
-        gap: 3rem;
-        align-items: start;
-    }
-
-    .about-img {
-        width: 100%;
-        border-radius: 20px;
-        border: 2px solid #333;
-        object-fit: cover;
-    }
-
-    .about-name {
-        font-size: 2.6rem;
-        font-weight: 800;
-        margin-bottom: 0.3rem;
-    }
-
-    .about-text {
-        opacity: 0.85;
-        line-height: 1.7;
-        font-size: 1rem;
-        max-width: 90%;
-    }
-
-    /* SUBSTACK */
-    .substack-embed-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 2.5rem;
-        padding-bottom: 2rem;
-    }
-
-    footer {
-        text-align: center;
-        opacity: 0.4;
-        padding: 3rem 1.5rem;
-        margin-top: 4rem;
-        font-size: 0.85rem;
-        border-top: 1px solid #111;
-    }
-
-    /* ========================= */
-    /* RESPONSIVE BREAKPOINTS    */
-    /* ========================= */
-
-    @media (max-width: 1024px) {
-
-        .hero-title, .hero-subtitle {
-            font-size: 3rem;
-        }
-
-        .book-section {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-
-        .book-desc { max-width: 100%; margin-left: auto; margin-right: auto; }
-
-        .about-layout {
-            grid-template-columns: 1fr;
-            text-align: center;
-        }
-
-        .about-img {
-            max-width: 320px;
-            margin: 0 auto 2rem;
-        }
-    }
-
-    @media (max-width: 768px) {
-
-        .hero-title, .hero-subtitle {
-            font-size: 2.5rem;
-        }
-
-        .hero-name { font-size: 0.85rem; letter-spacing: 6px; }
-
-        .section-large { font-size: 2.1rem; }
-
-        .ecosystem { padding: 0 1.5rem; }
-
-        .book-section { padding: 1rem 1.5rem; }
-
-        .canon-grid { gap: 1.8rem; }
-
-        iframe {
-            width: 100% !important;
-            height: 300px !important;
-        }
-    }
-
-    @media (max-width: 480px) {
-
-        .nav { padding: 1.2rem 1.4rem; }
-        .nav-logo { font-size: 1.4rem; }
-
-        .hero {
-            padding-top: 7rem;
-            padding-bottom: 3rem;
-        }
-
-        .hero-title, .hero-subtitle {
-            font-size: 2.1rem;
-            line-height: 1.22;
-        }
-
-        .hero-text {
-            font-size: 0.95rem;
-        }
-
-        .section-large { font-size: 1.85rem; }
-
-        .ecosystem { grid-template-columns: 1fr; }
-
-        .canon-card {
-            width: 170px;
-            padding: 1rem;
-        }
-
-        .about-name { font-size: 2.2rem; }
-        .about-text { font-size: 0.95rem; }
-    }
-
-</style>
-</head>
-
-<body>
-
-<!-- NAV -->
-<div class="nav">
-    <div class="nav-logo">CP</div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-    <div class="hero-name">C H A S E &nbsp; P R E M O N E</div>
-
-    <div class="hero-title">Design Your Mind.</div>
-    <div class="hero-subtitle">Own Your Future.</div>
-
-    <p class="hero-text">
-        <a href="https://chasepremone.substack.com" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid #444;">
-            Letters from the edge of the next reality.
-        </a>
-    </p>
-</section>
-
-<!-- ECOSYSTEM -->
-<div class="section-small">E C O S Y S T E M</div>
-<div class="section-large">Enter the New Paradigm</div>
-
-<div class="ecosystem">
-
-    <!-- HUMAN+ -->
-    <div class="eco-card">
-        <img src="assets/images/L1-1.png" class="eco-img" alt="Human+" />
-        <div class="eco-title">Human+™</div>
-        <div class="eco-desc">
-            Become the upgraded human in the age of intelligence.  
-            A weekly transmission on identity, perception, and navigating an accelerating future. Delivered straight to your inbox.
-        </div>
-        <a href="https://chasepremone.substack.com" class="eco-btn" target="_blank" rel="noopener noreferrer">Read on Substack →</a>
-    </div>
-
-    <!-- ACADEMY -->
-    <div class="eco-card">
-        <img src="assets/images/R1-2.png" class="eco-img" alt="The Frontier Academy" />
-        <div class="eco-title">The Frontier Academy™</div>
-        <div class="eco-desc">
-            A discipline for intentional humans.  
-            Refine identity, strengthen clarity, and construct the reality you want to live in.
-        </div>
-        <a href="https://www.skool.com/the-assembly-8278/about" class="eco-btn" target="_blank" rel="noopener noreferrer">Join the Community →</a>
-    </div>
-
-</div>
-
-<!-- RESOURCES -->
-<div class="section-small">R E S O U R C E S</div>
-<div class="section-large">Upgrade Your Reality</div>
-
-<!-- BOOK #1 -->
-<div class="book-section">
-    <img src="assets/images/book1.png" class="book-img" alt="Book One" />
-
-    <div>
-        <div class="book-title">Architect of Reality™</div>
-        <div class="book-author">By Chase Premone</div>
-
-        <div class="book-desc">
-            A foundational work on identity, clarity, and the architecture of the self in the age of accelerating intelligence.
-        </div>
-
-        <div class="book-buttons">
-            <a href="#" class="book-btn">Preorder</a>
-            <a href="#" class="book-btn">Join Waitlist</a>
-        </div>
-    </div>
-</div>
-
-<!-- BOOK #2 -->
-<div class="book-section">
-    <img src="assets/images/book2.png" class="book-img" alt="Book Two" />
-
-    <div>
-        <div class="book-title">Existential Economics</div>
-        <div class="book-author">By Chase Premone</div>
-
-        <div class="book-desc">
-            A concise exploration of value, identity, and human potential in a world shaped by exponential intelligence.
-        </div>
-
-        <div class="book-buttons">
-            <a href="#" class="book-btn">Preorder</a>
-            <a href="#" class="book-btn">Join Waitlist</a>
-        </div>
-    </div>
-</div>
-
-<!-- CANON -->
-<div class="canon-container">
-    <div class="section-small">T H E &nbsp; C A N O N</div>
-    <div class="section-large">Foundational Works</div>
-
-    <div class="canon-grid">
+import React, { useState } from 'react';
+import { 
+  Play, 
+  ChevronRight, 
+  Check, 
+  X, 
+  ArrowRight, 
+  Activity, 
+  Briefcase, 
+  Target, 
+  TrendingUp, 
+  Layers,
+  ShieldCheck
+} from 'lucide-react';
+
+// --- DESIGN SYSTEM COLORS ---
+// Deep Jungle: #1F3F3A
+// Sage Clay: #6E7F6A
+// Desert Sand: #D6C3A3
+// Burnt Copper: #C47A2C
+// Soft Ivory: #FAF7F2
+// Base Dark (Custom for deep background): #090C0B
+
+export default function App() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-[#090C0B] text-[#FAF7F2] font-sans selection:bg-[#C47A2C] selection:text-white">
+      {/* GLOBAL STYLES & FONTS */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
-        <!-- Canon Card 1 -->
-        <div class="canon-card">
-            <img src="assets/images/book1.png" class="canon-img" alt="Architect of Reality" />
-            <div class="canon-title">Architect of Reality™</div>
-            <a href="#" class="canon-btn">Preorder</a>
-            <a href="#" class="canon-btn">Waitlist</a>
+        body {
+          font-family: 'Inter', sans-serif;
+          background-image: radial-gradient(circle at 50% 0%, rgba(214, 195, 163, 0.08) 0%, transparent 40%), 
+                            radial-gradient(circle at 100% 50%, rgba(196, 122, 44, 0.05) 0%, transparent 30%);
+        }
+        
+        h1, h2, h3, h4, h5, h6, .display-font {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .gold-gradient-text {
+          background: linear-gradient(135deg, #D6C3A3 0%, #C47A2C 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .copper-button {
+          background: linear-gradient(135deg, #C47A2C 0%, #A66420 100%);
+          box-shadow: 0 4px 20px rgba(196, 122, 44, 0.2);
+          transition: all 0.3s ease;
+        }
+        .copper-button:hover {
+          box-shadow: 0 6px 25px rgba(196, 122, 44, 0.4);
+          transform: translateY(-2px);
+        }
+
+        .glass-card {
+          background: rgba(214, 195, 163, 0.03);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          border: 1px solid rgba(214, 195, 163, 0.1);
+          border-radius: 24px;
+        }
+      `}} />
+
+      {/* TOP BANNER / MICRO-HEADER */}
+      <nav className="fixed top-0 w-full z-50 glass-card !rounded-none !border-t-0 !border-l-0 !border-r-0 border-b border-[#D6C3A3]/10">
+        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <span className="display-font font-bold text-xl tracking-[0.15em] text-[#FAF7F2]">BRANDWELL</span>
+          </div>
+          <div className="hidden md:flex items-center space-x-6 text-sm">
+            <span className="text-[#D6C3A3] uppercase tracking-widest text-xs font-semibold">Monetization Architecture</span>
+            <span className="text-[#D6C3A3]/30">|</span>
+            <span className="text-[#FAF7F2]/70 text-xs tracking-widest uppercase">Led by Chase Premone</span>
+          </div>
         </div>
+      </nav>
 
-        <!-- Canon Card 2 -->
-        <div class="canon-card">
-            <img src="assets/images/book2.png" class="canon-img" alt="Existential Economics" />
-            <div class="canon-title">Existential Economics</div>
-            <a href="#" class="canon-btn">Preorder</a>
-            <a href="#" class="canon-btn">Waitlist</a>
+      {/* HERO SECTION */}
+      <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="inline-flex items-center space-x-3 mb-8 border border-[#C47A2C]/30 rounded-full px-5 py-2 bg-[#C47A2C]/5">
+            <span className="w-2 h-2 rounded-full bg-[#C47A2C] animate-pulse"></span>
+            <span className="text-[#D6C3A3] text-xs uppercase tracking-widest font-semibold">30-Day Expert Offer Install</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]">
+            Turn your expertise into a <br className="hidden md:block" />
+            <span className="gold-gradient-text">premium offer</span> people actually want to buy.
+          </h1>
+          
+          <p className="text-lg md:text-xl text-[#FAF7F2]/70 max-w-3xl mx-auto mb-12 font-light leading-relaxed">
+            If you’re smart, credible, and already good at what you do — but your business still feels harder to sell than it should — Brandwell helps you turn scattered expertise into one clear high-ticket offer, one sharp positioning angle, and one simple path to conversion.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <button className="copper-button w-full sm:w-auto px-8 py-4 rounded-full text-[#FAF7F2] font-semibold tracking-wide flex items-center justify-center space-x-2">
+              <span>Apply for a Strategy Call</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            <button 
+              onClick={() => setIsVideoOpen(true)}
+              className="w-full sm:w-auto px-8 py-4 rounded-full text-[#FAF7F2] font-semibold tracking-wide flex items-center justify-center space-x-2 border border-[#D6C3A3]/20 hover:bg-[#D6C3A3]/10 transition-colors"
+            >
+              <Play className="w-4 h-4 text-[#C47A2C]" />
+              <span>Watch the Video</span>
+            </button>
+          </div>
         </div>
+      </section>
 
-    </div>
-</div>
-
-<!-- ABOUT -->
-<div class="section-small">A B O U T</div>
-
-<div class="about-container">
-    <div class="about-layout">
-
-        <img src="assets/images/headshot.png" class="about-img" alt="Chase Premone" />
-
-        <div>
-            <div class="about-name">Who Is Chase Premone?</div>
-
-            <div class="about-text">
-                I study the mechanics of identity, intelligence, and human potential
-                and I turn that knowledge into tools for building a life of clarity & fulfillment.
-                <br><br>
-                My work exists for people who feel called to build something real —
-                a self, a philosophy, a reality that reflects who they truly are.
-                <br><br>
-                I don’t teach motivation.
-                I teach architecture.
-                <br><br>
-                If you want the next level of your life, you don’t wait for it.
-                You build the person capable of living it.
+      {/* VSL VIDEO SECTION */}
+      <section className="px-6 pb-24 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative aspect-video bg-[#090C0B] border border-[#D6C3A3]/20 rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(214,195,163,0.05)] group cursor-pointer" onClick={() => setIsVideoOpen(true)}>
+            {/* Thumbnail Overlay */}
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-30 mix-blend-overlay transition-transform duration-700 group-hover:scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#090C0B] via-transparent to-transparent"></div>
+            
+            <div className="absolute inset-0 flex flex-col items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-[#C47A2C]/20 border border-[#C47A2C]/50 flex items-center justify-center backdrop-blur-md group-hover:scale-110 transition-transform duration-300">
+                <Play className="w-8 h-8 text-[#C47A2C] ml-1" />
+              </div>
+              <p className="mt-6 text-[#D6C3A3] text-sm uppercase tracking-widest font-semibold">Play Presentation</p>
             </div>
+          </div>
+          
+          <div className="mt-12 text-center max-w-2xl mx-auto">
+            <h2 className="text-2xl font-semibold mb-4 text-[#FAF7F2]">Most experts do not have a talent problem. <br/><span className="text-[#C47A2C]">They have a commercial clarity problem.</span></h2>
+            <p className="text-[#FAF7F2]/60 font-light">
+              You can know a lot, help a lot, and still stay under-monetized if your expertise has never been shaped into something the market can quickly understand, want, and buy.
+            </p>
+          </div>
         </div>
+      </section>
 
+      {/* FRAMEWORK UI (Inspired by Image) */}
+      <section className="py-24 bg-[#D6C3A3]/5 border-y border-[#D6C3A3]/10">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <span className="text-[#D6C3A3] text-xs uppercase tracking-[0.2em] font-semibold block mb-4">The Brandwell Framework</span>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">The Expert Offer Install</h2>
+            <p className="text-[#FAF7F2]/60 mt-4 max-w-2xl mx-auto">A focused 30-day sprint designed to turn your expertise into a premium commercial asset.</p>
+          </div>
+
+          <div className="relative mt-8">
+            {/* Connecting Line */}
+            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C47A2C]/40 to-transparent -translate-y-1/2"></div>
+            
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+              {[
+                { step: "01", title: "IDENTIFY", desc: "NICHE + EXPERTISE", icon: Target },
+                { step: "02", title: "STRUCTURE", desc: "OFFER + SYSTEM", icon: Layers },
+                { step: "03", title: "PACKAGE", desc: "PREMIUM OFFER", icon: Briefcase },
+                { step: "04", title: "SCALE", desc: "TO $10K/MO", icon: TrendingUp }
+              ].map((item, i) => (
+                <div key={i} className="glass-card p-8 relative group hover:border-[#D6C3A3]/40 transition-colors pt-10">
+                  <div className="absolute -top-4 left-8 bg-[#D6C3A3] px-4 py-1 rounded-full text-[#1F3F3A] font-bold text-sm shadow-lg">
+                    {item.step}
+                  </div>
+                  <item.icon className="w-8 h-8 text-[#D6C3A3] mb-6 mt-2" strokeWidth={1.5} />
+                  <h3 className="text-lg font-bold tracking-wide mb-2 uppercase">{item.title}</h3>
+                  <p className="text-[#FAF7F2]/50 text-xs tracking-widest uppercase">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+            
+            <div className="flex justify-between text-[#C47A2C] text-xs tracking-[0.2em] uppercase font-semibold mt-12 px-8 opacity-70 hidden lg:flex">
+              <span>Knowledge</span>
+              <Activity className="w-4 h-4 mx-4" />
+              <span>System</span>
+              <Activity className="w-4 h-4 mx-4" />
+              <span>Leverage</span>
+              <Activity className="w-4 h-4 mx-4" />
+              <span>Freedom</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* THE PROBLEM / REINFORCEMENT */}
+      <section className="py-24 px-6 relative">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <span className="text-[#C47A2C] text-xs uppercase tracking-[0.2em] font-semibold block mb-4">The Problem</span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">You do not need more ideas.<br/>You need a sharper wedge.</h2>
+            <div className="space-y-6 text-[#FAF7F2]/70 font-light text-lg">
+              <p>Most experts stay stuck because their value is distributed across too many directions.</p>
+              <ul className="space-y-3 pl-4 border-l-2 border-[#D6C3A3]/30">
+                <li>They do too many things.</li>
+                <li>They speak to too many audiences.</li>
+                <li>They have too many half-formed offers.</li>
+                <li>They know too much to simplify naturally.</li>
+              </ul>
+              <p>And because of that, the market never sees one premium thing to buy. Instead of being perceived as a clear high-value solution, they get perceived as smart, but broad. Capable, but vague.</p>
+              <p className="text-[#D6C3A3] font-medium">That is expensive.</p>
+            </div>
+          </div>
+          
+          <div className="glass-card p-10 lg:p-14">
+            <h3 className="text-2xl font-bold mb-8">What Brandwell actually helps you do</h3>
+            <p className="text-[#FAF7F2]/70 mb-8">We do not hand you more noise, abstract ideas, or "content strategy" disconnected from money. We help you install the missing commercial layer beneath your expertise.</p>
+            
+            <div className="space-y-4">
+              {[
+                "What the market should actually buy from you first",
+                "Who that offer should be for & how it's positioned",
+                "How it should be priced and cleanly explained",
+                "How to move from attention to application to close"
+              ].map((text, i) => (
+                <div key={i} className="flex items-start space-x-3">
+                  <div className="mt-1"><ShieldCheck className="w-5 h-5 text-[#C47A2C]" /></div>
+                  <span className="text-[#FAF7F2]/90">{text}</span>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-10 p-6 bg-[#D6C3A3] rounded-2xl text-[#1F3F3A] font-medium text-sm italic shadow-lg">
+              "We help you stop sounding broad, stop overexplaining what you do, and stop leaking value through weak translation."
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* DELIVERABLES SECTION */}
+      <section className="py-24 px-6 bg-[#0B0F0D]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">What you leave with</h2>
+            <p className="text-[#FAF7F2]/60">By the end of the 30-day sprint, you leave with a stronger commercial foundation.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+            {[
+              "A refined high-ticket offer",
+              "A clearer niche / buyer profile",
+              "A stronger transformation statement",
+              "Offer positioning and message architecture",
+              "Pricing guidance",
+              "A sharper 'what I do' statement",
+              "Sales-call structure and core narrative",
+              "A simple VSL / application-page direction",
+              "A clearer content-to-conversion route",
+              "Cleaner offer delivery logic"
+            ].map((item, i) => (
+              <div key={i} className="flex items-center space-x-4 border-b border-[#D6C3A3]/10 pb-4">
+                <Check className="w-5 h-5 text-[#C47A2C] flex-shrink-0" />
+                <span className="text-[#FAF7F2]/80">{item}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center">
+            <p className="text-xl font-medium text-[#D6C3A3] mb-8">This is not just conversation. This is installation.</p>
+            <button className="copper-button px-8 py-4 rounded-full text-[#FAF7F2] font-semibold tracking-wide inline-flex items-center space-x-2">
+              <span>Apply for a Strategy Call</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* WHO IT'S FOR */}
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* For - Inverted Accent Block */}
+          <div className="bg-[#D6C3A3] p-10 lg:p-14 rounded-3xl shadow-xl">
+            <h3 className="text-2xl font-bold mb-8 text-[#1F3F3A]">Who this is for</h3>
+            <ul className="space-y-6">
+              {[
+                "You already have real expertise and people come to you for help.",
+                "Your offer still feels too custom, broad, or hard to explain.",
+                "You know you should be charging more.",
+                "Your content or authority does not yet translate cleanly into premium clients.",
+                "You feel your business is underperforming the quality of your actual mind."
+              ].map((item, i) => (
+                <li key={i} className="flex items-start space-x-4">
+                  <Check className="w-6 h-6 text-[#1F3F3A] mt-1 flex-shrink-0" />
+                  <span className="text-[#1F3F3A]/90 font-medium">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Not For */}
+          <div className="glass-card p-10 lg:p-14 relative">
+            <div className="absolute inset-0 bg-gradient-to-br from-transparent to-red-900/5 pointer-events-none rounded-3xl"></div>
+            <h3 className="text-2xl font-bold mb-8 text-[#FAF7F2]/50">Who this is not for</h3>
+            <ul className="space-y-6">
+              {[
+                "Total beginners with no real expertise.",
+                "People looking for motivational hand-holding.",
+                "People who want vague consulting without making decisions.",
+                "People who are unwilling to simplify.",
+                "People who want a giant done-for-you machine before they have a clear wedge."
+              ].map((item, i) => (
+                <li key={i} className="flex items-start space-x-4 opacity-60">
+                  <X className="w-6 h-6 text-red-400/60 mt-1 flex-shrink-0" />
+                  <span className="text-[#FAF7F2]/80 font-light">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* FOUNDER / CREDIBILITY */}
+      <section className="py-24 bg-[#D6C3A3]/5 border-y border-[#D6C3A3]/10">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5 relative">
+              <div className="aspect-[4/5] bg-[#090C0B] rounded-3xl overflow-hidden border border-[#C47A2C]/20 relative shadow-2xl">
+                {/* Founder Image Placeholder mimicking luxury photography */}
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')] bg-cover bg-center opacity-40 grayscale mix-blend-luminosity"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090C0B] via-transparent to-transparent opacity-90"></div>
+                <div className="absolute bottom-8 left-8">
+                  <span className="text-[#C47A2C] text-xs uppercase tracking-widest font-semibold block mb-1">Founder & Strategist</span>
+                  <h3 className="text-3xl font-bold tracking-tight">Chase Premone</h3>
+                </div>
+              </div>
+            </div>
+            
+            <div className="lg:col-span-7">
+              <span className="text-[#C47A2C] text-xs uppercase tracking-[0.2em] font-semibold block mb-4">Why Brandwell</span>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">A sharp understanding of how value is framed, perceived, and sold.</h2>
+              <div className="space-y-5 text-[#FAF7F2]/70 font-light text-lg mb-10">
+                <p>Brandwell is led by Chase Premone, a strategist focused on offer architecture, authority positioning, and monetization clarity for experts.</p>
+                <p>His background spans premium brand campaigns, entertainment, commercial storytelling, and strategic offer development in high-standard environments connected to globally recognized consumer, hospitality, media, and cultural brands.</p>
+                <p>Through Brandwell, Chase now applies that same lens to expert businesses — helping founders translate real depth into clearer offers, stronger positioning, and cleaner monetization.</p>
+              </div>
+
+              {/* Brand Logos Strip (Text-based to match luxury minimal vibe) */}
+              <div className="pt-8 border-t border-[#D6C3A3]/20">
+                <span className="text-[#FAF7F2]/40 text-xs uppercase tracking-[0.1em] font-semibold block mb-6">Selected Background Includes Work Connected To:</span>
+                <div className="flex flex-wrap gap-x-8 gap-y-4 text-sm tracking-widest font-bold text-[#D6C3A3]/60 uppercase display-font">
+                  <span>Ritz-Carlton</span>
+                  <span>Puma</span>
+                  <span>Red Bull</span>
+                  <span>Mudwater</span>
+                  <span>Insta360</span>
+                  <span>Warner Music</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">How it works</h2>
+          </div>
+
+          <div className="space-y-8 relative">
+            {/* Vertical Line */}
+            <div className="hidden md:block absolute left-8 top-8 bottom-8 w-px bg-gradient-to-b from-[#C47A2C] via-[#D6C3A3]/30 to-transparent"></div>
+            
+            {[
+              { num: "1", title: "Extraction", desc: "We identify where your real value is getting lost in translation." },
+              { num: "2", title: "Diagnosis", desc: "We find the core commercial blur: your offer, your position, your buyer, or your conversion path." },
+              { num: "3", title: "Offer Architecture", desc: "We shape the premium wedge the market should buy from you first." },
+              { num: "4", title: "Positioning & Sales Path", desc: "We tighten the message, narrative, and conversion path so your business becomes easier to understand and easier to sell." },
+              { num: "5", title: "Deployment", desc: "You leave with a clearer business asset, not just more ideas." }
+            ].map((step, i) => (
+              <div key={i} className="relative flex flex-col md:flex-row gap-6 md:gap-12 items-start glass-card p-8 md:pl-16">
+                <div className="md:absolute md:-left-6 md:top-8 w-12 h-12 rounded-full bg-[#D6C3A3] flex items-center justify-center font-bold text-[#1F3F3A] shrink-0 z-10 shadow-lg text-lg">
+                  {step.num}
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 tracking-wide uppercase">Step {step.num} — {step.title}</h3>
+                  <p className="text-[#FAF7F2]/60 font-light">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 px-6 bg-[#090C0B]">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold tracking-tight">Frequently Asked Questions</h2>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { q: "Is this business coaching?", a: "No. This is a focused offer and monetization architecture sprint. We are not here to hand you generic motivation or broad 'growth ideas.' We are here to help you install a sharper offer, stronger positioning, and a cleaner path to conversion." },
+              { q: "What if my business is still early?", a: "That can be fine — as long as the expertise is real. You do not need a massive audience. You do need real ability, real conviction, and a willingness to simplify." },
+              { q: "Do I need an existing audience?", a: "No. An audience can help, but the real issue is usually not audience size — it is whether what you sell is sharp enough to convert attention into revenue." },
+              { q: "Is this done-for-you?", a: "This is not a passive service where you disappear and hope magic happens. It is a focused strategic installation process. We help shape the commercial layer beneath your business and build the assets and direction needed to move with far more clarity." }
+            ].map((faq, i) => (
+              <div key={i} className="glass-card p-8 border-l-2 border-transparent hover:border-[#D6C3A3]/40 transition-all cursor-pointer">
+                <h4 className="text-lg font-semibold mb-3 text-[#FAF7F2]">{faq.q}</h4>
+                <p className="text-[#FAF7F2]/60 font-light text-sm">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EMOTIONAL CONVERSION & FINAL CTA */}
+      <section className="py-32 px-6 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#D6C3A3]/5 to-transparent"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+            Stop being impressive in fragments.<br/>
+            <span className="text-[#C47A2C]">Start being buyable with force.</span>
+          </h2>
+          
+          <p className="text-xl text-[#FAF7F2]/70 font-light max-w-2xl mx-auto mb-12">
+            The market cannot pay properly for what it cannot clearly perceive. If your value is still spread across too many ideas, services, audiences, and explanations, you need a sharper commercial shape.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-16 text-[#D6C3A3] font-mono uppercase tracking-[0.2em] text-sm">
+            <span>One offer.</span>
+            <span className="hidden sm:inline">•</span>
+            <span>One position.</span>
+            <span className="hidden sm:inline">•</span>
+            <span>One clear path.</span>
+          </div>
+          
+          <button className="copper-button px-10 py-5 rounded-full text-[#FAF7F2] text-lg font-semibold tracking-wide inline-flex items-center justify-center space-x-3 w-full sm:w-auto">
+            <span>Find Your Sharper Wedge</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
+          <p className="mt-6 text-xs text-[#FAF7F2]/40 uppercase tracking-widest">Limited-fit offer. Serious operators only.</p>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-12 border-t border-[#D6C3A3]/10 text-center px-6 relative z-10">
+        <div className="max-w-4xl mx-auto">
+          <span className="display-font font-bold text-2xl tracking-[0.15em] text-[#FAF7F2] mb-4 block">BRANDWELL</span>
+          <p className="text-[#D6C3A3] uppercase tracking-widest text-xs font-semibold mb-8">Monetization architecture for experts</p>
+          <p className="text-[#FAF7F2]/40 text-xs font-light max-w-md mx-auto">
+            For experts, consultants, operators, and founders who want their business to carry the true weight of their value.
+          </p>
+          <div className="mt-12 text-[#FAF7F2]/20 text-xs">
+            © {new Date().getFullYear()} Brandwell. All rights reserved.
+          </div>
+        </div>
+      </footer>
+
+      {/* VIDEO MODAL */}
+      {isVideoOpen && (
+        <div className="fixed inset-0 z-[100] bg-[#090C0B]/95 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="absolute top-6 right-6">
+            <button onClick={() => setIsVideoOpen(false)} className="text-[#FAF7F2]/50 hover:text-[#FAF7F2] transition-colors">
+              <X className="w-8 h-8" />
+            </button>
+          </div>
+          <div className="w-full max-w-5xl aspect-video bg-black border border-[#C47A2C]/30 rounded-3xl shadow-2xl flex items-center justify-center relative overflow-hidden">
+             {/* Replace with actual video iframe */}
+             <div className="absolute inset-0 bg-[#D6C3A3]/5 animate-pulse"></div>
+             <div className="text-center z-10">
+               <Play className="w-16 h-16 text-[#C47A2C] mx-auto mb-4 opacity-50" />
+               <p className="text-[#FAF7F2]/50 font-mono text-sm tracking-widest">VIDEO PLAYER PLACEHOLDER</p>
+             </div>
+          </div>
+        </div>
+      )}
     </div>
-</div>
-
-<!-- SUBSTACK -->
-<div class="substack-embed-container">
-    <iframe 
-        src="https://chasepremone.substack.com/embed" 
-        width="480" 
-        height="320"
-        style="border:none; background:none; border-radius:12px;"
-        frameborder="0"
-        scrolling="no">
-    </iframe>
-</div>
-
-<footer>
-    © 2025 Chase Premone. Enter The Next Reality.
-</footer>
-
-</body>
-</html>
+  );
+}
