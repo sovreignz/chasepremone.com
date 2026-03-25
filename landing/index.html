@@ -4,256 +4,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brandwell — Monetization Architecture for Experts</title>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0A0A0A;
-    --bg-elevated: #111111;
-    --bg-card: #161616;
-    --text-primary: #F2F0ED;
-    --text-secondary: #9A958E;
-    --text-muted: #5C5852;
-    --accent: #C9A96E;
-    --accent-dim: rgba(201, 169, 110, 0.15);
-    --accent-glow: rgba(201, 169, 110, 0.08);
-    --border: rgba(255, 255, 255, 0.06);
-    --border-accent: rgba(201, 169, 110, 0.25);
-    --serif: 'EB Garamond', Georgia, serif;
-    --sans: 'DM Sans', -apple-system, sans-serif;
-    --max-width: 780px;
-    --section-gap: 120px;
+    --bg: #FAFAF7;
+    --bg-white: #FFFFFF;
+    --bg-dark: #0D0D0B;
+    --bg-warm: #F3F0EB;
+    --bg-cream: #F7F5F0;
+    --text-dark: #0D0D0B;
+    --text-body: #3A3A36;
+    --text-muted: #8A857C;
+    --text-light: #B5B0A7;
+    --text-white: #FAFAF7;
+    --accent: #C4430A;
+    --accent-hover: #A83808;
+    --accent-soft: rgba(196, 67, 10, 0.08);
+    --gold: #B8965A;
+    --gold-soft: rgba(184, 150, 90, 0.12);
+    --border: rgba(13, 13, 11, 0.08);
+    --border-dark: rgba(13, 13, 11, 0.15);
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Outfit', -apple-system, sans-serif;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
     background: var(--bg);
-    color: var(--text-primary);
+    color: var(--text-body);
     font-family: var(--sans);
     font-weight: 400;
-    line-height: 1.7;
-    font-size: 17px;
+    font-size: 16px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
 
-  ::selection {
-    background: var(--accent);
-    color: var(--bg);
-  }
+  ::selection { background: var(--accent); color: white; }
 
-  /* ===== UTILITY ===== */
-  .container {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-
-  .section {
-    padding: var(--section-gap) 0;
-    position: relative;
-  }
-
-  .section-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--accent);
-    margin: 0 auto;
-    opacity: 0.4;
-  }
-
-  /* ===== TYPOGRAPHY ===== */
-  h1, h2, h3 {
-    font-family: var(--serif);
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
-  }
-
-  h1 {
-    font-size: clamp(2.4rem, 5.5vw, 3.6rem);
-    color: var(--text-primary);
-  }
-
-  h2 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    color: var(--text-primary);
-  }
-
-  h3 {
-    font-size: 1.3rem;
-    color: var(--text-primary);
-    font-weight: 600;
-    font-family: var(--sans);
-    letter-spacing: -0.01em;
-  }
-
-  p {
-    color: var(--text-secondary);
-    font-size: 17px;
-    line-height: 1.75;
-  }
-
-  .text-accent { color: var(--accent); }
-  .text-muted { color: var(--text-muted); }
-
-  .eyebrow {
-    font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-    display: block;
-  }
-
-  /* ===== CTA BUTTON ===== */
-  .cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 42px;
-    background: var(--accent);
-    color: var(--bg);
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: all 0.35s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-btn::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateX(-100%);
-    transition: transform 0.4s ease;
-  }
-
-  .cta-btn:hover::before {
-    transform: translateX(0);
-  }
-
-  .cta-btn:hover {
-    box-shadow: 0 0 40px rgba(201, 169, 110, 0.25);
-  }
-
-  .cta-btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 38px;
-    background: transparent;
-    color: var(--accent);
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: 1px solid var(--border-accent);
-    cursor: pointer;
-    transition: all 0.35s ease;
-  }
-
-  .cta-btn-outline:hover {
-    background: var(--accent-dim);
-    border-color: var(--accent);
-  }
-
-  .cta-arrow {
-    transition: transform 0.3s ease;
-  }
-
-  .cta-btn:hover .cta-arrow,
-  .cta-btn-outline:hover .cta-arrow {
-    transform: translateX(4px);
-  }
-
-  /* ===== TOPBAR ===== */
-  .topbar {
-    padding: 24px 0;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-    z-index: 10;
-  }
-
-  .topbar-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 28px;
+  /* ===== NAV ===== */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: rgba(250, 250, 247, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.3s ease;
   }
 
-  .logo {
+  .nav-logo {
     font-family: var(--sans);
-    font-size: 15px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    font-size: 14px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--text-primary);
+    color: var(--text-dark);
   }
 
-  .logo-sub {
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    color: var(--text-muted);
-    display: block;
-    margin-top: 2px;
-  }
-
-  .topbar-cta {
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-family: var(--sans);
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--bg);
+    background: var(--accent);
+    padding: 12px 28px;
     text-decoration: none;
-    padding: 10px 20px;
-    border: 1px solid var(--border-accent);
     transition: all 0.3s ease;
   }
 
-  .topbar-cta:hover {
-    background: var(--accent-dim);
-  }
+  .nav-cta:hover { background: var(--accent-hover); }
 
   /* ===== HERO ===== */
   .hero {
-    padding: 100px 0 80px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    padding: 140px 40px 80px;
     position: relative;
   }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    pointer-events: none;
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
   }
 
   .hero h1 {
-    margin-bottom: 28px;
-    position: relative;
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.12;
+    color: var(--text-dark);
+    max-width: 820px;
+    letter-spacing: -0.02em;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.35s forwards;
   }
 
   .hero h1 em {
@@ -263,934 +132,1217 @@
 
   .hero-sub {
     font-size: 18px;
-    color: var(--text-secondary);
-    max-width: 580px;
-    margin: 0 auto 50px;
-    line-height: 1.8;
-  }
-
-  .hero-label {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
     color: var(--text-muted);
-    margin-top: 18px;
+    max-width: 520px;
+    margin: 32px auto 48px;
+    line-height: 1.7;
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.5s forwards;
   }
 
-  /* ===== VSL SECTION ===== */
-  .vsl-section {
-    padding: 0 0 var(--section-gap);
-  }
-
-  .vsl-wrapper {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-
-  .vsl-embed {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
+  .hero-cta-group {
     display: flex;
+    gap: 16px;
     align-items: center;
-    justify-content: center;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.65s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 40px;
+    background: var(--accent);
+    color: white;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
   }
 
-  .vsl-embed::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border: 1px solid var(--border-accent);
-    opacity: 0;
-    transition: opacity 0.4s ease;
+  .btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(196, 67, 10, 0.2);
   }
 
-  .vsl-embed:hover::before {
-    opacity: 1;
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background: transparent;
+    color: var(--text-dark);
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    border: 1px solid var(--border-dark);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--text-dark);
+    background: var(--text-dark);
+    color: var(--bg);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    opacity: 0;
+    animation: fadeUp 0.6s ease 1s forwards;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--text-light), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* ===== VSL ===== */
+  .vsl-section {
+    padding: 0 40px 100px;
+  }
+
+  .vsl-wrapper {
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .vsl-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: var(--bg-dark);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,0,0,0.04);
   }
 
   .vsl-placeholder {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 14px;
-    letter-spacing: 0.05em;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: rgba(255,255,255,0.3);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  .vsl-placeholder-icon {
-    width: 60px;
-    height: 60px;
-    border: 2px solid var(--accent);
+  .play-btn {
+    width: 72px;
+    height: 72px;
+    border: 2px solid rgba(255,255,255,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 16px;
+    transition: all 0.4s ease;
+    cursor: pointer;
   }
+
+  .play-btn:hover {
+    border-color: var(--accent);
+    background: var(--accent);
+    transform: scale(1.05);
+  }
+
+  .play-btn svg { margin-left: 3px; }
 
   .vsl-note {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 24px;
     font-size: 13px;
-    color: var(--text-muted);
-    letter-spacing: 0.03em;
+    color: var(--text-light);
+    font-weight: 300;
   }
 
-  /* ===== PROBLEM SECTION ===== */
-  .problem-section {
-    background: var(--bg-elevated);
+  /* ===== CTA BAND ===== */
+  .cta-band {
+    text-align: center;
+    padding: 60px 40px;
+    background: var(--bg-warm);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
 
-  .problem-list {
-    list-style: none;
-    margin: 40px 0;
+  .cta-band p {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 28px;
+    font-style: italic;
   }
 
-  .problem-list li {
-    padding: 14px 0;
-    color: var(--text-secondary);
-    font-size: 17px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+  /* ===== PROBLEM — CREATIVE ASYMMETRIC ===== */
+  .problem-section {
+    padding: 120px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
-  .problem-list li:last-child { border-bottom: none; }
-
-  .problem-marker {
-    width: 6px;
-    height: 6px;
-    min-width: 6px;
-    background: var(--accent);
-    margin-top: 10px;
-    opacity: 0.6;
-  }
-
-  .problem-consequence {
-    margin-top: 40px;
-    padding: 32px;
-    border: 1px solid var(--border);
-    background: var(--bg-card);
-  }
-
-  .problem-consequence p {
-    color: var(--text-secondary);
-    font-size: 16px;
-  }
-
-  .problem-consequence strong {
-    color: var(--text-primary);
-  }
-
-  /* ===== OFFER SECTION ===== */
-  .offer-header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-
-  .offer-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2px;
-    margin: 50px 0;
-  }
-
-  .offer-item {
-    padding: 28px 32px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    transition: border-color 0.3s ease;
-  }
-
-  .offer-item:hover {
-    border-color: var(--border-accent);
-  }
-
-  .offer-item h3 {
-    margin-bottom: 8px;
-    font-size: 17px;
-  }
-
-  .offer-item p {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  /* ===== DELIVERABLES ===== */
-  .deliverables-grid {
+  .problem-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 50px 0;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 80px;
   }
 
-  .deliverable {
-    padding: 22px 26px;
-    background: var(--bg-card);
+  .problem-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text-dark);
+    letter-spacing: -0.01em;
+  }
+
+  .problem-header h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .problem-header-text {
+    padding-top: 12px;
+  }
+
+  .problem-header-text p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .problem-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .problem-card {
+    background: var(--bg-white);
+    padding: 40px 32px;
     border: 1px solid var(--border);
-    font-size: 15px;
-    color: var(--text-secondary);
+    position: relative;
     transition: all 0.3s ease;
   }
 
-  .deliverable:hover {
-    border-color: var(--border-accent);
-    color: var(--text-primary);
+  .problem-card:hover {
+    background: var(--bg-cream);
+    border-color: var(--border-dark);
   }
 
-  .deliverable-label {
+  .problem-card-num {
+    font-family: var(--serif);
+    font-size: 48px;
+    color: var(--accent);
+    opacity: 0.15;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .problem-card h3 {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .problem-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ===== CONSEQUENCE BAR ===== */
+  .consequence {
+    background: var(--bg-dark);
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .consequence p {
+    font-family: var(--serif);
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    color: var(--text-white);
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+    font-style: italic;
+    opacity: 0.9;
+  }
+
+  .consequence strong {
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  /* ===== OFFER — CREATIVE LAYOUT ===== */
+  .offer-section {
+    padding: 120px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .offer-top {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .offer-top .eyebrow {
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--accent);
+    margin-bottom: 20px;
     display: block;
-    margin-bottom: 6px;
-    opacity: 0.7;
   }
 
-  /* ===== PROCESS ===== */
-  .process-steps {
-    margin: 50px 0;
-    position: relative;
-  }
-
-  .process-steps::before {
-    content: '';
-    position: absolute;
-    left: 18px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-    opacity: 0.2;
-  }
-
-  .process-step {
-    display: flex;
-    gap: 28px;
-    padding: 28px 0;
-    position: relative;
-  }
-
-  .step-number {
+  .offer-top h2 {
     font-family: var(--serif);
-    font-size: 28px;
-    color: var(--accent);
-    opacity: 0.5;
-    min-width: 36px;
-    text-align: center;
-    line-height: 1;
-    padding-top: 2px;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 16px;
   }
 
-  .step-content h3 {
+  .offer-top p {
+    font-size: 17px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  .offer-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-dark);
+  }
+
+  .offer-item {
+    padding: 44px 40px;
+    border-bottom: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    position: relative;
+    transition: background 0.3s ease;
+  }
+
+  .offer-item:hover { background: var(--bg-cream); }
+
+  .offer-item:nth-child(2n) { border-right: none; }
+  .offer-item:nth-last-child(-n+2) { border-bottom: none; }
+
+  .offer-item-label {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .offer-item h3 {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
     margin-bottom: 8px;
   }
 
-  .step-content p {
+  .offer-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ===== WHAT YOU LEAVE WITH — STACKED CREATIVE ===== */
+  .deliverables-section {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 40px;
+  }
+
+  .deliverables-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .deliverables-sticky {
+    position: sticky;
+    top: 120px;
+  }
+
+  .deliverables-sticky .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .deliverables-sticky h2 {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .deliverables-sticky p {
     font-size: 15px;
     color: var(--text-muted);
+    font-weight: 300;
     line-height: 1.7;
+  }
+
+  .deliverables-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .deliv-card {
+    background: var(--bg-white);
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+  }
+
+  .deliv-card:hover {
+    border-color: var(--border-dark);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  }
+
+  .deliv-card-cat {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .deliv-card-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.4;
+  }
+
+  /* ===== PROCESS ===== */
+  .process-section {
+    padding: 120px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .process-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 64px;
+    gap: 40px;
+  }
+
+  .process-top h2 {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 400;
+    color: var(--text-dark);
+  }
+
+  .process-top h2 em { font-style: italic; color: var(--accent); }
+
+  .process-top p {
+    font-size: 15px;
+    color: var(--text-muted);
+    max-width: 340px;
+    text-align: right;
+    font-weight: 300;
+  }
+
+  .process-timeline {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid var(--border-dark);
+    background: var(--bg-white);
+  }
+
+  .process-step {
+    padding: 40px 28px;
+    border-right: 1px solid var(--border);
+    transition: background 0.3s ease;
+    position: relative;
+  }
+
+  .process-step:last-child { border-right: none; }
+  .process-step:hover { background: var(--bg-cream); }
+
+  .process-step-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--accent);
+    opacity: 0.2;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1;
+  }
+
+  .process-step h3 {
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+  }
+
+  .process-step p {
+    font-size: 13px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ===== EMOTIONAL BREAK ===== */
+  .emotional {
+    padding: 120px 40px;
+    text-align: center;
+    position: relative;
+    background: var(--bg);
+  }
+
+  .emotional h2 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 400;
+    color: var(--text-dark);
+    max-width: 700px;
+    margin: 0 auto 32px;
+    line-height: 1.15;
+  }
+
+  .emotional h2 em { font-style: italic; color: var(--accent); }
+
+  .emotional p {
+    max-width: 480px;
+    margin: 0 auto 44px;
+    font-size: 17px;
+    color: var(--text-muted);
+    font-weight: 300;
+    line-height: 1.8;
   }
 
   /* ===== FOUNDER ===== */
   .founder-section {
-    background: var(--bg-elevated);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: var(--bg-dark);
+    padding: 100px 40px;
+    overflow: hidden;
   }
 
-  .founder-block {
-    max-width: 640px;
+  .founder-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
   }
 
-  .founder-block p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  .brand-strip {
-    margin-top: 44px;
-    padding-top: 32px;
-    border-top: 1px solid var(--border);
-  }
-
-  .brand-strip-label {
+  .founder-text .eyebrow {
     font-size: 11px;
     font-weight: 600;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  .founder-text h2 {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--text-white);
+    margin-bottom: 28px;
+    line-height: 1.2;
+  }
+
+  .founder-text p {
+    font-size: 16px;
+    color: rgba(250, 250, 247, 0.55);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .founder-text p strong {
+    color: rgba(250, 250, 247, 0.85);
+    font-weight: 500;
+  }
+
+  .founder-brands {
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .founder-brands-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(250,250,247,0.3);
     margin-bottom: 16px;
     display: block;
   }
 
-  .brand-names {
+  .founder-brands-list {
     font-family: var(--serif);
-    font-size: 16px;
-    color: var(--text-secondary);
+    font-size: 15px;
+    color: rgba(250,250,247,0.4);
     font-style: italic;
-    letter-spacing: 0.02em;
-    line-height: 2;
+    line-height: 2.2;
   }
 
-  .brand-names span {
-    margin: 0 6px;
-    color: var(--text-muted);
+  .founder-brands-list span {
+    margin: 0 8px;
     opacity: 0.3;
   }
 
-  /* ===== FOR / NOT FOR ===== */
-  .fit-grid {
+  .founder-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .founder-shape {
+    width: 380px;
+    height: 480px;
+    background: linear-gradient(145deg, rgba(196, 67, 10, 0.15), rgba(184, 150, 90, 0.08));
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .founder-shape-inner {
+    font-family: var(--serif);
+    font-size: 120px;
+    color: rgba(250,250,247,0.04);
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    letter-spacing: -0.03em;
+  }
+
+  .founder-photo-note {
+    position: absolute;
+    bottom: -24px;
+    right: -20px;
+    font-size: 11px;
+    color: rgba(250,250,247,0.2);
+    letter-spacing: 0.05em;
+    font-style: italic;
+  }
+
+  /* ===== FIT SECTION ===== */
+  .fit-section {
+    padding: 100px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .fit-section h2 {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .fit-columns {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin: 50px 0;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .fit-divider {
+    width: 1px;
+    height: 100%;
+    background: var(--border-dark);
   }
 
   .fit-col h3 {
-    margin-bottom: 24px;
-    font-size: 15px;
-    letter-spacing: 0.06em;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
+    margin-bottom: 28px;
   }
 
   .fit-col.yes h3 { color: var(--accent); }
-  .fit-col.no h3 { color: var(--text-muted); }
+  .fit-col.no h3 { color: var(--text-light); }
 
-  .fit-col ul {
+  .fit-list {
     list-style: none;
   }
 
-  .fit-col ul li {
-    padding: 12px 0;
+  .fit-list li {
+    padding: 14px 0;
     font-size: 15px;
-    color: var(--text-secondary);
+    color: var(--text-body);
     border-bottom: 1px solid var(--border);
-    line-height: 1.6;
+    font-weight: 300;
+    line-height: 1.5;
   }
 
-  .fit-col ul li:last-child { border-bottom: none; }
-
-  /* ===== DIFFERENTIATION ===== */
-  .diff-pillars {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
-    margin: 50px 0;
-  }
-
-  .diff-pillar {
-    padding: 32px 24px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    text-align: center;
-  }
-
-  .diff-pillar h3 {
-    font-family: var(--serif);
-    font-size: 17px;
-    font-weight: 500;
-    margin-bottom: 10px;
-  }
-
-  .diff-pillar p {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
+  .fit-list li:last-child { border-bottom: none; }
 
   /* ===== FAQ ===== */
+  .faq-section {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--border);
+    padding: 100px 40px;
+  }
+
+  .faq-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .faq-inner h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 48px;
+  }
+
   .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 28px 0;
+    border-bottom: 1px solid var(--border-dark);
   }
 
   .faq-q {
-    font-family: var(--sans);
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-primary);
-    cursor: pointer;
+    width: 100%;
+    padding: 24px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     background: none;
     border: none;
-    width: 100%;
+    cursor: pointer;
     text-align: left;
-    padding: 0;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-dark);
   }
 
   .faq-toggle {
-    font-size: 20px;
+    font-size: 22px;
     color: var(--accent);
-    opacity: 0.5;
     transition: transform 0.3s ease;
-    min-width: 20px;
+    min-width: 22px;
     text-align: center;
+    font-weight: 300;
   }
 
   .faq-a {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    transition: max-height 0.4s ease;
   }
 
   .faq-a-inner {
-    padding-top: 16px;
+    padding-bottom: 24px;
   }
 
   .faq-a-inner p {
     font-size: 15px;
     color: var(--text-muted);
+    font-weight: 300;
     line-height: 1.7;
   }
 
-  .faq-item.open .faq-toggle {
-    transform: rotate(45deg);
-  }
-
-  .faq-item.open .faq-a {
-    max-height: 300px;
-  }
-
-  /* ===== EMOTIONAL / MID CTA ===== */
-  .emotional-section {
-    text-align: center;
-    background: var(--bg-elevated);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .emotional-section h2 {
-    margin-bottom: 28px;
-  }
-
-  .emotional-section p {
-    max-width: 540px;
-    margin: 0 auto 40px;
-    font-size: 17px;
-    line-height: 1.8;
-  }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+  .faq-item.open .faq-a { max-height: 250px; }
 
   /* ===== FINAL CTA ===== */
   .final-cta {
+    padding: 140px 40px;
     text-align: center;
-    padding: 120px 0 140px;
     position: relative;
+    background: var(--bg);
   }
 
-  .final-cta::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 400px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    pointer-events: none;
+  .final-cta .eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: block;
   }
 
   .final-cta h2 {
-    margin-bottom: 24px;
+    font-family: var(--serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.2;
   }
 
-  .final-cta p {
-    max-width: 500px;
-    margin: 0 auto 20px;
+  .final-cta > p {
     font-size: 16px;
+    color: var(--text-muted);
+    max-width: 440px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.7;
   }
 
-  .final-cta-bullets {
+  .final-bullets {
     list-style: none;
-    max-width: 400px;
-    margin: 32px auto 44px;
+    max-width: 380px;
+    margin: 0 auto 48px;
     text-align: left;
   }
 
-  .final-cta-bullets li {
-    padding: 8px 0;
+  .final-bullets li {
+    padding: 10px 0;
     font-size: 15px;
-    color: var(--text-secondary);
+    color: var(--text-body);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 14px;
+    font-weight: 400;
   }
 
-  .final-cta-bullets li::before {
+  .final-bullets li::before {
     content: '';
-    width: 4px;
-    height: 4px;
+    width: 6px;
+    height: 6px;
+    min-width: 6px;
     background: var(--accent);
-    min-width: 4px;
+    border-radius: 50%;
+    opacity: 0.6;
   }
 
-  .cta-fit-note {
+  .final-fit {
     margin-top: 20px;
     font-size: 12px;
-    color: var(--text-muted);
-    letter-spacing: 0.05em;
+    color: var(--text-light);
+    letter-spacing: 0.06em;
   }
 
   /* ===== FOOTER ===== */
   .footer {
-    padding: 48px 0;
-    border-top: 1px solid var(--border);
+    background: var(--bg-dark);
+    padding: 48px 40px;
     text-align: center;
   }
 
   .footer-logo {
     font-family: var(--sans);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: rgba(250,250,247,0.3);
     margin-bottom: 8px;
   }
 
   .footer-sub {
     font-size: 12px;
-    color: var(--text-muted);
-    opacity: 0.5;
-    letter-spacing: 0.04em;
+    color: rgba(250,250,247,0.15);
+    font-weight: 300;
   }
 
   /* ===== RESPONSIVE ===== */
-  @media (max-width: 700px) {
-    :root {
-      --section-gap: 80px;
-    }
-
-    .deliverables-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .fit-grid {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-
-    .diff-pillars {
-      grid-template-columns: 1fr;
-    }
-
-    .hero {
-      padding: 70px 0 60px;
-    }
-
-    .final-cta {
-      padding: 80px 0 100px;
-    }
+  @media (max-width: 900px) {
+    .problem-header { grid-template-columns: 1fr; gap: 24px; }
+    .problem-cards { grid-template-columns: 1fr; }
+    .offer-items { grid-template-columns: 1fr; }
+    .offer-item { border-right: none !important; }
+    .offer-item:last-child { border-bottom: none; }
+    .deliverables-inner { grid-template-columns: 1fr; gap: 40px; }
+    .deliverables-sticky { position: static; }
+    .deliverables-grid { grid-template-columns: 1fr; }
+    .process-timeline { grid-template-columns: 1fr; }
+    .process-step { border-right: none !important; border-bottom: 1px solid var(--border); }
+    .process-step:last-child { border-bottom: none; }
+    .founder-inner { grid-template-columns: 1fr; }
+    .founder-visual { display: none; }
+    .fit-columns { grid-template-columns: 1fr; gap: 40px; }
+    .fit-divider { display: none; }
+    .process-top { flex-direction: column; align-items: flex-start; }
+    .process-top p { text-align: left; }
+    .nav { padding: 16px 24px; }
+    .hero { padding: 120px 24px 80px; }
   }
 
-  /* ===== ANIMATIONS ===== */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(24px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
-  .animate-in {
-    opacity: 0;
-    animation: fadeUp 0.7s ease forwards;
-  }
-
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.2s; }
-  .delay-3 { animation-delay: 0.35s; }
-  .delay-4 { animation-delay: 0.5s; }
 </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
-<nav class="topbar">
-  <div class="topbar-inner">
-    <div>
-      <div class="logo">Brandwell</div>
-      <span class="logo-sub">Monetization Architecture for Experts</span>
-    </div>
-    <a href="#apply" class="topbar-cta">Apply Now</a>
-  </div>
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">Brandwell</div>
+  <a href="#apply" class="nav-cta">Apply Now →</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <span class="eyebrow animate-in">The 30-Day Expert Offer Install</span>
-    <h1 class="animate-in delay-1">Turn your expertise into a <em>premium offer</em> the market can understand, want, and buy.</h1>
-    <p class="hero-sub animate-in delay-2">If you're credible, capable, and already good at what you do — but your business still feels harder to sell than it should — Brandwell installs the commercial layer you're missing.</p>
-    <div class="animate-in delay-3">
-      <a href="#vsl" class="cta-btn">Watch the Video <span class="cta-arrow">→</span></a>
-    </div>
-    <span class="hero-label animate-in delay-4">For experts, consultants, and high-agency operators</span>
+  <span class="hero-eyebrow">The 30-Day Expert Offer Install</span>
+  <h1>Turn your expertise into<br>a <em>premium offer</em> people<br>actually want to buy.</h1>
+  <p class="hero-sub">You're credible. You're capable. But your business is still harder to sell than it should be. We fix the layer beneath that.</p>
+  <div class="hero-cta-group">
+    <a href="#vsl" class="btn-primary">Watch the Video →</a>
+    <a href="#apply" class="btn-ghost">Apply Now</a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
   </div>
 </section>
 
 <!-- VSL -->
 <section class="vsl-section" id="vsl">
   <div class="vsl-wrapper">
-    <div class="vsl-embed">
-      <!-- REPLACE THIS DIV WITH YOUR VSL EMBED CODE -->
+    <div class="vsl-container">
+      <!-- REPLACE WITH YOUR VSL EMBED -->
       <div class="vsl-placeholder">
-        <div class="vsl-placeholder-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <polygon points="6,3 20,12 6,21" fill="#C9A96E"/>
+        <div class="play-btn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <polygon points="6,3 20,12 6,21" fill="white"/>
           </svg>
         </div>
-        VSL EMBED GOES HERE
+        VSL EMBED
       </div>
     </div>
-    <p class="vsl-note">Watch the short video above. It will change how you see the problem.</p>
+    <p class="vsl-note">Watch the short video. It changes how you see the problem.</p>
   </div>
 </section>
 
-<!-- CTA BAR 1 -->
-<div class="section" style="padding: 40px 0 60px; text-align: center;">
-  <div class="container">
-    <a href="#apply" class="cta-btn">Apply for a Strategy Call <span class="cta-arrow">→</span></a>
-  </div>
+<!-- CTA BAND -->
+<div class="cta-band">
+  <p>Most experts don't have a talent problem. They have a <em>commercial clarity</em> problem.</p>
+  <a href="#apply" class="btn-primary">Apply for a Strategy Call →</a>
 </div>
 
-<div class="section-divider"></div>
-
 <!-- PROBLEM -->
-<section class="problem-section section">
-  <div class="container">
-    <span class="eyebrow">The Real Problem</span>
-    <h2>You don't have a talent problem.<br>You have a commercial clarity problem.</h2>
-    <p style="margin-top: 20px; max-width: 600px;">You can know a lot, help a lot, and still stay under-monetized — if your expertise has never been shaped into something the market can quickly understand, want, and buy.</p>
+<section class="problem-section">
+  <div class="problem-header">
+    <h2>Your expertise is <em>real.</em><br>Your business doesn't<br>reflect it yet.</h2>
+    <div class="problem-header-text">
+      <p>You can know a lot, help a lot, and still stay under-monetized — if your expertise has never been shaped into something the market can quickly understand, want, and buy.</p>
+    </div>
+  </div>
 
-    <ul class="problem-list">
-      <li><div class="problem-marker"></div>Your value is spread across too many directions</li>
-      <li><div class="problem-marker"></div>You do too many things for too many audiences</li>
-      <li><div class="problem-marker"></div>You have half-formed offers that never fully land</li>
-      <li><div class="problem-marker"></div>You know too much to simplify naturally</li>
-      <li><div class="problem-marker"></div>The market sees you as smart — but broad, vague, and hard to buy</li>
-    </ul>
-
-    <div class="problem-consequence">
-      <p>Once your offer is blurry, <strong>everything downstream breaks</strong> — your content, your pricing, your sales calls, your authority, your referrals, and your ability to scale cleanly. The problem is never effort. It's the commercial shape beneath the effort.</p>
+  <div class="problem-cards">
+    <div class="problem-card">
+      <div class="problem-card-num">01</div>
+      <h3>Too Broad</h3>
+      <p>Your value is spread across too many directions. The market sees you as smart — but vague.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-card-num">02</div>
+      <h3>Too Custom</h3>
+      <p>Every engagement is different. Nothing is repeatable. You can't scale what you can't standardize.</p>
+    </div>
+    <div class="problem-card">
+      <div class="problem-card-num">03</div>
+      <h3>Too Hard to Explain</h3>
+      <p>You know too much to simplify naturally. People respect you but don't know how to buy from you.</p>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
+<!-- CONSEQUENCE -->
+<section class="consequence">
+  <p>Once your offer is blurry, <strong>everything downstream breaks</strong> — your content, your pricing, your calls, your authority, and your ability to scale.</p>
+</section>
 
 <!-- OFFER -->
-<section class="section">
-  <div class="container">
-    <div class="offer-header">
-      <span class="eyebrow">The Offer</span>
-      <h2>The Expert Offer Install</h2>
-      <p style="margin-top: 16px; max-width: 540px; margin-left: auto; margin-right: auto;">A focused 30-day sprint that turns your expertise into a premium commercial asset — sharper offer, clearer positioning, cleaner path to conversion.</p>
-    </div>
+<section class="offer-section">
+  <div class="offer-top">
+    <span class="eyebrow">What We Install</span>
+    <h2>The Expert Offer Install</h2>
+    <p>A 30-day sprint that builds the commercial foundation your expertise is missing.</p>
+  </div>
 
-    <div class="offer-grid">
-      <div class="offer-item">
-        <h3>One Clear Buyer</h3>
-        <p>The specific person you should be targeting first — not everyone, the right one.</p>
-      </div>
-      <div class="offer-item">
-        <h3>One Premium Offer</h3>
-        <p>A transformation the market can understand, desire, and pay for at a premium.</p>
-      </div>
-      <div class="offer-item">
-        <h3>One Sharp Position</h3>
-        <p>So your value lands with force instead of getting lost in explanation.</p>
-      </div>
-      <div class="offer-item">
-        <h3>One Clean Sales Narrative</h3>
-        <p>So your calls stop starting from confusion and start closing with clarity.</p>
-      </div>
-      <div class="offer-item">
-        <h3>One Simple Conversion Path</h3>
-        <p>So your content, outreach, and referrals have somewhere real to go.</p>
-      </div>
+  <div class="offer-items">
+    <div class="offer-item">
+      <span class="offer-item-label">Clarity</span>
+      <h3>One Clear Buyer</h3>
+      <p>The exact person you should be targeting first.</p>
     </div>
-
-    <div style="text-align: center;">
-      <a href="#apply" class="cta-btn">Apply for a Strategy Call <span class="cta-arrow">→</span></a>
+    <div class="offer-item">
+      <span class="offer-item-label">Architecture</span>
+      <h3>One Premium Offer</h3>
+      <p>A transformation the market can understand and pay for.</p>
+    </div>
+    <div class="offer-item">
+      <span class="offer-item-label">Positioning</span>
+      <h3>One Sharp Position</h3>
+      <p>So your value lands with force, not explanation.</p>
+    </div>
+    <div class="offer-item">
+      <span class="offer-item-label">Conversion</span>
+      <h3>One Sales Narrative</h3>
+      <p>So your calls close instead of wander.</p>
+    </div>
+    <div class="offer-item">
+      <span class="offer-item-label">Distribution</span>
+      <h3>One Conversion Path</h3>
+      <p>So your content and outreach actually lead somewhere.</p>
+    </div>
+    <div class="offer-item">
+      <span class="offer-item-label">Infrastructure</span>
+      <h3>One Launch System</h3>
+      <p>Starter funnel, CRM, and 30-day roadmap.</p>
     </div>
   </div>
-</section>
 
-<div class="section-divider"></div>
+  <div style="text-align: center; margin-top: 60px;">
+    <a href="#apply" class="btn-primary">Apply for a Strategy Call →</a>
+  </div>
+</section>
 
 <!-- DELIVERABLES -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">What You Leave With</span>
-    <h2>This is installation, not conversation.</h2>
-    <p style="margin-top: 16px;">By the end of the sprint, you walk away with a stronger commercial foundation and launch-ready assets.</p>
-
+<section class="deliverables-section">
+  <div class="deliverables-inner">
+    <div class="deliverables-sticky">
+      <span class="eyebrow">What You Leave With</span>
+      <h2>Installation,<br>not conversation.</h2>
+      <p>You don't leave with ideas. You leave with a launch-ready commercial foundation.</p>
+    </div>
     <div class="deliverables-grid">
-      <div class="deliverable">
-        <span class="deliverable-label">Strategy</span>
-        Refined high-ticket offer architecture
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Strategy</span>
+        <span class="deliv-card-name">High-ticket offer architecture</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Strategy</span>
-        ICP and buyer profile clarification
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Strategy</span>
+        <span class="deliv-card-name">ICP + buyer profile</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Positioning</span>
-        Message architecture and positioning sheet
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Positioning</span>
+        <span class="deliv-card-name">Message architecture</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Positioning</span>
-        Transformation statement and "what I do" clarity
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Positioning</span>
+        <span class="deliv-card-name">"What I do" statement</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Sales</span>
-        Sales call structure and core narrative
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Sales</span>
+        <span class="deliv-card-name">Call structure + narrative</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Sales</span>
-        Pricing guidance and objection handling
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Sales</span>
+        <span class="deliv-card-name">Objection handling</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Assets</span>
-        Landing page copy and application funnel direction
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Assets</span>
+        <span class="deliv-card-name">Landing page copy</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Assets</span>
-        VSL or pre-call video script
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Assets</span>
+        <span class="deliv-card-name">VSL / video script</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Distribution</span>
-        5-email nurture sequence
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Distribution</span>
+        <span class="deliv-card-name">5-email nurture sequence</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Distribution</span>
-        Content starter pack with hooks and pillars
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Distribution</span>
+        <span class="deliv-card-name">Content starter pack</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Infrastructure</span>
-        Starter funnel and CRM snapshot
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Infrastructure</span>
+        <span class="deliv-card-name">Starter funnel + CRM</span>
       </div>
-      <div class="deliverable">
-        <span class="deliverable-label">Infrastructure</span>
-        30-day launch roadmap
+      <div class="deliv-card">
+        <span class="deliv-card-cat">Infrastructure</span>
+        <span class="deliv-card-name">30-day launch roadmap</span>
       </div>
     </div>
   </div>
 </section>
-
-<div class="section-divider"></div>
 
 <!-- PROCESS -->
-<section class="section" style="background: var(--bg-elevated); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="container">
-    <span class="eyebrow">How It Works</span>
-    <h2>Four weeks. One sharper business.</h2>
+<section class="process-section">
+  <div class="process-top">
+    <h2>Four weeks.<br><em>One sharper business.</em></h2>
+    <p>Each week builds on the last. By the end, you have a clearer business — not just a clearer idea.</p>
+  </div>
 
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-number">01</div>
-        <div class="step-content">
-          <h3>Extraction</h3>
-          <p>We identify where your real value is getting lost in translation. What you actually do, who it's really for, and where the market is getting confused.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-number">02</div>
-        <div class="step-content">
-          <h3>Diagnosis</h3>
-          <p>We find the core commercial blur — your offer, your positioning, your buyer definition, or your conversion path. Usually it's a combination.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-number">03</div>
-        <div class="step-content">
-          <h3>Architecture</h3>
-          <p>We shape the premium wedge the market should buy from you first. One clear offer. One sharp position. One simple price.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-number">04</div>
-        <div class="step-content">
-          <h3>Positioning & Sales Path</h3>
-          <p>We tighten the message, narrative, and conversion path so your business becomes easier to understand and easier to sell.</p>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="step-number">05</div>
-        <div class="step-content">
-          <h3>Deployment</h3>
-          <p>You leave with launch-ready assets, starter infrastructure, and a clear 30-day action plan. Not more ideas — real installation.</p>
-        </div>
-      </div>
+  <div class="process-timeline">
+    <div class="process-step">
+      <div class="process-step-num">01</div>
+      <h3>Extract</h3>
+      <p>Find where your value is getting lost in translation.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">02</div>
+      <h3>Diagnose</h3>
+      <p>Identify the commercial blur — offer, position, buyer, or path.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">03</div>
+      <h3>Architect</h3>
+      <p>Shape the premium wedge the market should buy first.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">04</div>
+      <h3>Position</h3>
+      <p>Tighten the message, narrative, and sales path.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-step-num">05</div>
+      <h3>Deploy</h3>
+      <p>Launch-ready assets. Starter infrastructure. Action plan.</p>
     </div>
   </div>
 </section>
 
-<!-- EMOTIONAL MID-CTA -->
-<section class="emotional-section section">
-  <div class="container">
-    <h2>Stop being impressive<br>in fragments.</h2>
-    <p>The market cannot pay properly for what it cannot clearly perceive. If your value is still spread across too many ideas, services, and explanations — no amount of content or effort fixes the underlying drag. You need a sharper commercial shape.</p>
-    <a href="#apply" class="cta-btn">Apply for a Strategy Call <span class="cta-arrow">→</span></a>
-  </div>
+<!-- EMOTIONAL -->
+<section class="emotional">
+  <h2>Stop being impressive<br>in <em>fragments.</em></h2>
+  <p>The market can't pay for what it can't clearly perceive. You don't need more effort. You need a sharper commercial shape.</p>
+  <a href="#apply" class="btn-primary">Apply for a Strategy Call →</a>
 </section>
-
-<div class="section-divider"></div>
 
 <!-- FOUNDER -->
-<section class="founder-section section">
-  <div class="container">
-    <span class="eyebrow">Who's Behind This</span>
-    <h2>Led by Chase Premone</h2>
+<section class="founder-section">
+  <div class="founder-inner">
+    <div class="founder-text">
+      <span class="eyebrow">Led By</span>
+      <h2>Chase Premone</h2>
+      <p>Brandwell is a strategic firm focused on offer architecture, authority positioning, and monetization clarity for experts.</p>
+      <p>Chase's background spans premium brand campaigns, entertainment, commercial storytelling, and strategic offer development in high-standard environments connected to globally recognized consumer, hospitality, media, and cultural brands.</p>
+      <p>That background shaped something most expert businesses are missing: <strong>a sharp understanding of how value is framed, perceived, and sold.</strong></p>
 
-    <div class="founder-block" style="margin-top: 32px;">
-      <p>Brandwell is led by Chase Premone, a strategist focused on offer architecture, authority positioning, and monetization clarity for experts.</p>
-      <p>His background spans premium brand campaigns, entertainment, commercial storytelling, and strategic offer development in high-standard environments connected to globally recognized consumer, hospitality, media, and cultural brands.</p>
-      <p>That background shaped something most expert businesses are missing: <strong style="color: var(--text-primary);">a sharp understanding of how value is framed, perceived, and sold.</strong></p>
-      <p>Through Brandwell, Chase now applies that same lens to expert businesses — helping founders translate real depth into clearer offers, stronger positioning, and cleaner monetization.</p>
-    </div>
-
-    <div class="brand-strip">
-      <span class="brand-strip-label">Selected background includes work connected to</span>
-      <div class="brand-names">
-        Ritz-Carlton Residences <span>·</span> Puma <span>·</span> Red Bull <span>·</span> Mudwater <span>·</span> Insta360 <span>·</span> Warner Music <span>·</span> SLS Baha Mar
+      <div class="founder-brands">
+        <span class="founder-brands-label">Selected background includes work connected to</span>
+        <div class="founder-brands-list">
+          Ritz-Carlton Residences <span>·</span> Puma <span>·</span> Red Bull <span>·</span> Mudwater <span>·</span> Insta360 <span>·</span> Warner Music <span>·</span> SLS Baha Mar
+        </div>
       </div>
     </div>
-  </div>
-</section>
 
-<div class="section-divider"></div>
-
-<!-- WHO IT'S FOR -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Is This For You</span>
-    <h2>Fit matters more than volume.</h2>
-
-    <div class="fit-grid">
-      <div class="fit-col yes">
-        <h3>This is for you if —</h3>
-        <ul>
-          <li>You already have real expertise and people come to you for help</li>
-          <li>Your offer still feels too custom, too broad, or too hard to explain</li>
-          <li>You know you should be charging more</li>
-          <li>Your content or authority doesn't translate cleanly into premium clients</li>
-          <li>Your business is underperforming the quality of your actual mind</li>
-        </ul>
+    <div class="founder-visual">
+      <div class="founder-shape">
+        <div class="founder-shape-inner">BW</div>
       </div>
-      <div class="fit-col no">
-        <h3>This is not for you if —</h3>
-        <ul>
-          <li>You're a total beginner with no real expertise yet</li>
-          <li>You're looking for motivational hand-holding</li>
-          <li>You want vague consulting without hard decisions</li>
-          <li>You're unwilling to simplify</li>
-          <li>You want a done-for-you machine before you have a clear wedge</li>
-        </ul>
-      </div>
+      <span class="founder-photo-note">— photo placement</span>
     </div>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- DIFFERENTIATION -->
-<section class="section">
-  <div class="container">
-    <div style="text-align: center; margin-bottom: 40px;">
-      <span class="eyebrow">Why This Works</span>
-      <h2>A rare intersection.</h2>
-      <p style="margin-top: 16px; max-width: 500px; margin-left: auto; margin-right: auto;">Most people can give advice. Very few can simplify a business with precision. Brandwell sits at the crossover of six disciplines that don't usually exist in one place.</p>
+<!-- FIT -->
+<section class="fit-section">
+  <h2>Is this for you?</h2>
+  <div class="fit-columns">
+    <div class="fit-col yes">
+      <h3>Yes, if —</h3>
+      <ul class="fit-list">
+        <li>You already have real expertise</li>
+        <li>Your offer feels too broad, too custom, or too hard to explain</li>
+        <li>You know you should be charging more</li>
+        <li>Your authority doesn't convert into premium clients</li>
+        <li>Your business is underperforming your mind</li>
+      </ul>
     </div>
-
-    <div class="diff-pillars">
-      <div class="diff-pillar">
-        <h3>Strategic Thinking</h3>
-        <p>See the board, not just the pieces</p>
-      </div>
-      <div class="diff-pillar">
-        <h3>Offer Design</h3>
-        <p>Shape what the market buys</p>
-      </div>
-      <div class="diff-pillar">
-        <h3>Premium Storytelling</h3>
-        <p>Frame value so it lands</p>
-      </div>
-      <div class="diff-pillar">
-        <h3>Positioning</h3>
-        <p>Cut through with clarity</p>
-      </div>
-      <div class="diff-pillar">
-        <h3>Audience Psychology</h3>
-        <p>Understand what converts</p>
-      </div>
-      <div class="diff-pillar">
-        <h3>Commercial Framing</h3>
-        <p>Make intelligence buyable</p>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 20px;">
-      <p style="max-width: 540px; margin: 0 auto;">The problem most experts face is not lack of intelligence. It's lack of translation. Once the architecture is sharper, everything gets stronger — your authority, your content, your pricing, your calls, your confidence, your revenue.</p>
+    <div class="fit-divider"></div>
+    <div class="fit-col no">
+      <h3>Not if —</h3>
+      <ul class="fit-list">
+        <li>You're a total beginner with no real expertise</li>
+        <li>You want motivational hand-holding</li>
+        <li>You're unwilling to simplify</li>
+        <li>You want done-for-you before you have a clear wedge</li>
+        <li>You want vague consulting without decisions</li>
+      </ul>
     </div>
   </div>
 </section>
-
-<div class="section-divider"></div>
 
 <!-- FAQ -->
-<section class="section">
-  <div class="container">
-    <span class="eyebrow">Questions</span>
-    <h2 style="margin-bottom: 40px;">Before you apply.</h2>
+<section class="faq-section">
+  <div class="faq-inner">
+    <h2>Before you apply.</h2>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
         Is this business coaching?
         <span class="faq-toggle">+</span>
       </button>
-      <div class="faq-a">
-        <div class="faq-a-inner">
-          <p>No. This is a focused offer and monetization architecture sprint. We're not here to hand you generic motivation or broad growth ideas. We're here to install a sharper offer, stronger positioning, and a cleaner path to conversion.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        Who is this best suited for?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        <div class="faq-a-inner">
-          <p>Experts, consultants, coaches, strategists, operators, and high-agency service providers with real capability whose offer or business still feels commercially blurry.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">
-        What if my business is still early?
-        <span class="faq-toggle">+</span>
-      </button>
-      <div class="faq-a">
-        <div class="faq-a-inner">
-          <p>That can be fine — as long as the expertise is real. You don't need a massive audience. You do need real ability, real conviction, and a willingness to simplify.</p>
-        </div>
-      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>No. This is a focused offer architecture and monetization sprint. No generic motivation. No broad growth ideas. Just a sharper offer, position, and conversion path.</p>
+      </div></div>
     </div>
 
     <div class="faq-item">
@@ -1198,23 +1350,19 @@
         Do I need an existing audience?
         <span class="faq-toggle">+</span>
       </button>
-      <div class="faq-a">
-        <div class="faq-a-inner">
-          <p>No. An audience can help, but the real issue is usually not audience size — it's whether what you sell is sharp enough to convert attention into revenue.</p>
-        </div>
-      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>No. The real issue is rarely audience size — it's whether what you sell is sharp enough to convert attention into revenue.</p>
+      </div></div>
     </div>
 
     <div class="faq-item">
       <button class="faq-q" onclick="toggleFaq(this)">
-        What happens after the sprint?
+        What if my business is still early?
         <span class="faq-toggle">+</span>
       </button>
-      <div class="faq-a">
-        <div class="faq-a-inner">
-          <p>You leave with launch-ready assets, a clear roadmap, and starter infrastructure. Where deeper execution support is needed, Brandwell can pull in trusted specialist operators from Chase's broader network.</p>
-        </div>
-      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>That can work — as long as the expertise is real. You don't need scale. You need clarity.</p>
+      </div></div>
     </div>
 
     <div class="faq-item">
@@ -1222,33 +1370,39 @@
         Is this done-for-you?
         <span class="faq-toggle">+</span>
       </button>
-      <div class="faq-a">
-        <div class="faq-a-inner">
-          <p>This is not a passive service where you disappear and hope magic happens. It's a focused strategic installation process. We shape the commercial layer beneath your business and build the assets and direction needed to move with far more clarity.</p>
-        </div>
-      </div>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>It's a strategic installation process. We shape the commercial layer beneath your business and build the assets you need to move with clarity. Not passive. Not a hope-and-pray service.</p>
+      </div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What happens after the sprint?
+        <span class="faq-toggle">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">
+        <p>You leave with launch-ready assets, starter infrastructure, and a clear roadmap. Where deeper execution is needed, Brandwell can connect trusted specialist operators from Chase's broader network.</p>
+      </div></div>
     </div>
   </div>
 </section>
 
 <!-- FINAL CTA -->
 <section class="final-cta" id="apply">
-  <div class="container">
-    <span class="eyebrow">Next Step</span>
-    <h2>Apply for a Strategy Call</h2>
-    <p>If your expertise is valuable but commercially unclear, this is the next step. On the call, we'll look at:</p>
+  <span class="eyebrow">Next Step</span>
+  <h2>Apply for a Strategy Call</h2>
+  <p>On the call, we look at:</p>
 
-    <ul class="final-cta-bullets">
-      <li>Where your business is commercially muddy</li>
-      <li>What's weakening your positioning</li>
-      <li>What the sharper wedge likely is</li>
-      <li>Whether Brandwell is the right fit to install it</li>
-    </ul>
+  <ul class="final-bullets">
+    <li>Where your business is commercially muddy</li>
+    <li>What's weakening your positioning</li>
+    <li>What the sharper wedge likely is</li>
+    <li>Whether Brandwell is the right fit</li>
+  </ul>
 
-    <!-- REPLACE HREF WITH YOUR CALENDAR/APPLICATION LINK -->
-    <a href="#" class="cta-btn">Apply Now <span class="cta-arrow">→</span></a>
-    <p class="cta-fit-note">Limited-fit offer. Serious operators only.</p>
-  </div>
+  <!-- REPLACE WITH YOUR APPLICATION LINK -->
+  <a href="#" class="btn-primary">Apply Now →</a>
+  <p class="final-fit">Limited-fit offer. Serious operators only.</p>
 </section>
 
 <!-- FOOTER -->
@@ -1261,14 +1415,8 @@
 function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   const isOpen = item.classList.contains('open');
-  
-  // Close all
   document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  
-  // Toggle clicked
-  if (!isOpen) {
-    item.classList.add('open');
-  }
+  if (!isOpen) item.classList.add('open');
 }
 </script>
 
